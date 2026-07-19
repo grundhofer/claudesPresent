@@ -9,3 +9,4 @@ To check whether a topic has grown before: `grep -i <topic> garden/INDEX.md`.
 | # | slug | status | tags | planted | tended | hook |
 |---|------|--------|------|---------|--------|------|
 | 001 | murmuration | fact-checked | emergence · self-organization · boids · biology · identity | 2026-07-19 | 2026-07-19 | a thousand starlings, no one steering — global order without a global mind |
+| 002 | dark-between-the-stars | fact-checked | cosmology · olbers-paradox · deep-time · light · history-of-science | 2026-07-19 | 2026-07-19 | the night sky should blaze like the sun — the dark is telling you the universe began |
