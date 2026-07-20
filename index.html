@@ -350,6 +350,7 @@
         <li><a href="#note-001"><span class="toc-n">001</span><span class="toc-main"><span class="toc-title">Murmuration</span><span class="toc-gist">a thousand starlings, no one steering</span></span></a></li>
         <li><a href="#note-002"><span class="toc-n">002</span><span class="toc-main"><span class="toc-title">The Dark Between the Stars</span><span class="toc-gist">why is it dark at night?</span></span></a></li>
         <li><a href="#note-003"><span class="toc-n">003</span><span class="toc-main"><span class="toc-title">Petrichor</span><span class="toc-gist">why rain has a smell — and who it's really for</span></span></a></li>
+        <li><a href="#note-004"><span class="toc-n">004</span><span class="toc-main"><span class="toc-title">The Blue That Isn't There</span><span class="toc-gist">why almost nothing alive is truly blue</span></span></a></li>
       </ol>
     </nav>
 
@@ -594,6 +595,88 @@
       </div>
     </article>
     <!-- note:003 end -->
+
+    <div class="divider" id="note-004"><span>note 004</span></div>
+
+    <!-- note:004 start -->
+    <article class="note">
+      <p class="kicker">planted 21 july 2026 · fact-checked</p>
+      <h2>The Blue That Isn't There</h2>
+      <p class="dek">why almost nothing alive is truly blue</p>
+
+      <div class="body">
+        <p>Blue is the easiest colour in the world to find and one of the hardest for the world to make. Look up: the whole sky. Look around: a jay, a peacock, a kingfisher, a morpho butterfly with wings like torn scraps of that sky, the blue of a friend's eyes. Blue is everywhere, and almost none of it is a blue <em>thing</em>. Pull a blue feather from the grass, crush it hard between finger and thumb, and the blue is gone — not faded, <em>gone</em>, to a dull grey-brown, as though you'd let the colour drain out. In a sense you have. There was never any blue <em>in</em> the feather to begin with.</p>
+
+        <h3>The colour that's hard to make</h3>
+        <p>Nature hands out reds and yellows and browns and blacks freely — real pigments for all of them, cheap and everywhere. The carotenoids that redden a tomato and a flamingo; the melanins that darken hair and soil and ink. A pigment is just a molecule shaped to swallow some wavelengths of light and throw the rest back; the colour you see is whatever it throws back. To look red, a molecule swallows the high-energy blue end of the spectrum and returns the rest — and that turns out to be chemically easy, because those are the energies ordinary molecules trade in.</p>
+
+        <p>To look <em>blue</em>, a molecule has to do the opposite, harder thing: absorb the low-energy red light and reflect only the high-energy blue. That takes a large, elaborate, precisely tuned molecule, and life has evolved one only a handful of times. <strong>Genuine blue pigment is one of the rarest tricks in nature's chemistry — and in animals it is very nearly absent.</strong></p>
+
+        <p>And yet the world is drenched in blue. So where is all of it coming from?</p>
+
+        <h3>Structure, not substance</h3>
+        <p>Not from pigment — from <em>architecture</em>. Nearly every blue you have ever seen is made not of a blue material but of colourless matter arranged at the scale of light itself: structures a few hundred nanometres across — the width of a single wavelength — shaped so that blue is the one colour they hand back to your eye. It is really all one trick — light bouncing off fine structure and interfering with itself — but it comes in two grades, loose and tight.</p>
+
+        <p><strong>The loose kind</strong> makes the sky, and your blue-eyed friends. Where the structures are small and disordered — the molecules of the air; the fine, low-melanin front layer of an iris over dark tissue — short blue wavelengths get thrown sideways and back while the long red ones stream past. The daytime sky is blue for this reason (Rayleigh scattering), and a blue eye holds not one speck of <em>blue</em> pigment: it is a thin, low-melanin haze over a dark backing, scattering blue the way the atmosphere does. Blue eyes are a little patch of sky in the face.</p>
+
+        <p><strong>The tight kind</strong> makes the morpho, the peacock, the jay, the starling. Here the structure is regular — a stack of impossibly thin layers, a lattice of tiny rods, a quasi-ordered sponge — and light reflecting off each surface meets light from the next; for one wavelength, blue, the waves line up crest-to-crest and reinforce while all the rest fall out of step and cancel. It is the very effect that runs a rainbow across a soap bubble or a film of oil on a wet road. When the lattice is near-perfect the blue is <em>iridescent</em> — tilt a morpho or a starling and the colour slides, the way it does on the bubble; when the order is looser — the jay's spongy barbs — the blue holds steady from every angle. This was the great correction: these matte blues were long blamed on light scattering off <em>random</em> specks, until 1998, when a careful analysis of a blue feather showed the structure is not random at all but quietly, precisely ordered. The blue had been interference all along.</p>
+
+        <p>And there is a pigment in the story after all — just not a blue one. Behind almost every structural blue sits a layer of black: melanin, tucked under the nanostructure, swallowing the stray light that would otherwise wash the colour out. The blue is shape and light — but shape and light <em>sharpened against black</em>. It is why the same feather that flares blue in reflected light turns plain brown when you hold it up and look <em>through</em> it: with the structure's game bypassed, all that's left to see is the melanin that was hiding behind the blue the whole time.</p>
+
+        <figure class="lab">
+          <div class="stage">
+            <div class="order" aria-live="off">
+              structural colour · <span class="val" id="blueHue">blue</span>
+              <div class="bar"><i id="blueBar"></i></div>
+              <span class="scale" id="blueScale">structure · 170 nm · tilt 0°</span>
+            </div>
+            <canvas id="blueCanvas"></canvas>
+          </div>
+          <div class="controls">
+            <span class="label">structure</span>
+            <input type="range" id="blueStruct" min="130" max="260" value="170" aria-label="nanostructure layer thickness, in nanometres">
+            <span class="label">tilt</span>
+            <input type="range" id="blueTilt" min="0" max="66" value="0" aria-label="viewing angle, in degrees">
+            <button class="chip" id="blueGrind" type="button" aria-pressed="false"><span class="swatch"></span>grind it</button>
+          </div>
+          <figcaption>Structural colour — no pigment, only nanometre-thin layers catching light. Slide <b>structure</b> to tune which colour the layers reflect; add <b>tilt</b> (or drag across it) and the colour slides — that's iridescence. Then <b>grind it</b>: destroy the order and the colour collapses to grey, while the real-pigment swatch (top right) doesn't budge. Almost every blue in nature is the ordered state. <span class="cap-note">(A schematic thin-film model; real wings and feathers are subtler, and past violet the reflection just leaves the visible band and darkens.)</span></figcaption>
+        </figure>
+
+        <p>And here is the proof, the thing that gives the whole game away: the crushing. Grind a blue morpho's wing, or that jay's feather, to a fine powder and the blue simply ceases to exist — you have smashed the architecture, and the colour was never anything <em>but</em> the architecture (what's left is the drab brown of the surviving melanin). Grind a red feather, coloured by an honest pigment, and the powder is still red. Wet the morpho's wing with a clear liquid instead and the blue doesn't vanish so much as <em>slide</em> — the peak drifts from blue toward green as the liquid fills the gaps the light was tuned to, then slides back as it dries. A colour you can nudge with a drop of alcohol and grind out of existence: that is structural colour, and almost all the blue in nature is precisely this. And because there is no pigment to fade, structural colour can outlast the creature: the most intense blue ever measured in a living thing belongs to a fruit — <em>Pollia</em> — whose hard little berries still gleam on herbarium sheets pressed more than a century ago.</p>
+
+        <h3>The rare real blues</h3>
+        <p>There <em>are</em> true blue pigments — just very few, and each one is a small marvel of chemistry. Most "blue" flowers cheat: they build their blue not from a blue molecule but by taking a fundamentally red-violet one — an anthocyanin — and caging it in acid, metal ions and helper molecules until it reads blue. The red rose and the blue cornflower carry the very same pigment; the cornflower just wraps it in a metal complex. A genuinely blue <em>molecule</em> does exist — phycocyanin, which colours cyanobacteria blue-green across whole lakes and oceans — so the scarcity is really about animals, where a blue pigment is nearly unheard of. And there is one substance, faintly and honestly blue all by itself, that you are mostly made of and can stand waist-deep in: <strong>water</strong>. A glassful looks clear, but gather enough of it and its own molecules quietly absorb the red end of the light, and what comes back to you is blue. The blue of a deep, clean lake is only a little the sky's, borrowed and reflected — mostly it is the water's own, one of nature's few honest blues; it stays blue even under a grey overcast, where there is no blue sky to mirror.</p>
+
+        <h3>What blue is, then</h3>
+        <p>Here is the turn I keep coming back to. The blue of the world is almost never a <em>possession</em> — it is a <em>performance</em>. The butterfly does not <em>have</em> blue; it <em>does</em> blue, continuously, by standing in the light with the right shape. Take away the light, or change the angle, or crush the structure, and there is nothing blue left to find — because there was never any blue to keep. Only a piece of colourless architecture, catching plain white light and handing back the single note you see. The rarest colour to own turns out to be the easiest one to stage.</p>
+
+        <p>Even here, on this page. The quiet blue-green these words are set against — the one accent this whole garden allows itself — is borrowed from a starling's back. And a starling's back is not painted either. It is the same trick you have just been reading about: layers a few hundred nanometres thick, throwing back an oil-slick sheen that holds no blue pigment at all — only melanin, arranged not to <em>be</em> a colour but to <em>make</em> one. The colour of this garden is a blue that isn't there.</p>
+
+        <section class="sources">
+          <h3>Sources</h3>
+          <ol>
+            <li><cite>P. Vukusic &amp; J. R. Sambles, "Photonic structures in biology," Nature 424:852–855, 2003</cite> — the survey of structural colour (scattering, interference, diffraction) across the living world.</li>
+            <li><cite>R. O. Prum, R. Torres, S. Williamson &amp; J. Dyck, "Coherent light scattering by blue feather barbs," Nature 396:28–29, 1998</cite> — matte feather blue is coherent scattering from a <em>quasi-ordered</em> nanostructure, not the older "Tyndall scattering off random particles." The correction this note turns on.</li>
+            <li><cite>P. Vukusic et al., "Quantified interference and diffraction in single Morpho butterfly scales," Proc. R. Soc. B 266:1403–1411, 1999</cite>, and <cite>M. A. Giraldo &amp; D. G. Stavenga, J. Comp. Physiol. A, 2016</cite> — the morpho's blue as interference from two structures (a thin-film lower lamina and a multilayered upper lamina) together.</li>
+            <li><cite>J. Zi et al., "Coloration strategies in peacock feathers," PNAS 100:12576–12578, 2003</cite> (the peacock's 2-D photonic-crystal lattice); <cite>T. Freyer, B. D. Wilts &amp; D. G. Stavenga, Front. Ecol. Evol. 9:746254, 2021</cite> (the starling's structural sheen).</li>
+            <li><cite>American Academy of Ophthalmology, "Your Blue Eyes Aren't Really Blue"</cite> — no blue pigment in a blue iris; the colour is scattering. <cite>J. T. Bagnara et al., "On the blue coloration of vertebrates," Pigment Cell Research, 2007</cite> — blue in vertebrates is almost always structural, with only a couple of known pigment exceptions.</li>
+            <li><cite>K. Takeda, "Blue metal complex pigments involved in blue flower color," Proc. Japan Acad. Ser. B 82, 2006</cite> — the cornflower's engineered blue (the same anthocyanin as a red rose, caged in a metal complex).</li>
+            <li><cite>S. Vignolini et al., "Pointillist structural color in Pollia fruit," PNAS 109:15712–15715, 2012</cite> — a cellulose nanostructure making a colour "more intense than any previously described biological material," with no pigment.</li>
+            <li><cite>C. L. Braun &amp; S. N. Smirnov, "Why is water blue?," J. Chem. Education 70:612–614, 1993</cite> — water's faint intrinsic blue, from vibrational (O–H stretch) overtones absorbing red light.</li>
+          </ol>
+          <h3 style="margin-top:24px">Kept honest</h3>
+          <ul>
+            <li><strong>"Rarest in the living world" was too strong; it's rarest in <em>animals</em>.</strong> Blue pigment is genuinely scarce chemistry, but not vanishingly rare everywhere — cyanobacteria make phycocyanin, a real blue pigment, across whole oceans. So the honest claim is narrower than it first sounds: <em>blue the colour</em> is everywhere; <em>blue pigment</em> is the rare part, and nearly absent in animals, where structure does almost all the work.</li>
+            <li><strong>"Scattering" and "interference" aren't two different physics.</strong> They're one — light scattering off structure and interfering with itself — sampled at two grades of order. Only the loosest cases (the sky, and by the classic account a blue iris) are the disordered "incoherent" kind; everything with a real nanostructure behind it is the ordered, interfering kind. I split them for clarity, but the line between them is a dial, not a wall.</li>
+            <li><strong>The matte blues aren't scattering off "random" specks — that was the old, wrong story.</strong> The 1998 correction (a Fourier analysis of a blue feather barb) showed the structure is <em>quasi-ordered</em>, not random; the colour is interference. That is the hinge this whole note turns on, so I've tried not to repeat the myth it overturned.</li>
+            <li><strong>"Only shape and light" isn't the whole truth — a pigment does quiet work.</strong> A layer of black melanin sits under almost every structural blue and swallows stray light; without it the blue would read washed-out, not saturated. So the honest version is <em>shape and light, sharpened against black</em>.</li>
+            <li><strong>The morpho's blue doesn't vanish when you wet it — it slides.</strong> The measured peak drifts from blue toward green (roughly 500 → 560 nm) under a clear liquid and slides back as it dries; it only disappears outright if the liquid's refractive index nearly matches the wing's. (Several popular accounts get the direction backwards.)</li>
+            <li><strong>Water's blue is real but shy.</strong> A deep, clear body of water is faintly, genuinely blue on its own — its O–H bonds absorb a little red — but you only see that intrinsic blue where something scatters it back to you, and enough sediment or plankton can still tip a real lake green or brown.</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+    <!-- note:004 end -->
   </main>
 
   <section class="howto" id="how">
@@ -1076,6 +1159,199 @@
     refreshColors(); resize();
     if (prefersReduced) { scent = scentTarget(); drawFrame(); if (playBtn) { playBtn.textContent = "play"; playBtn.setAttribute("aria-pressed", "false"); } }
     else io.observe(cvs);
+  })();
+
+  // ---- note 004: the blue that isn't there — structural colour, tunable + grindable ----
+  (() => {
+    const cvs = document.getElementById("blueCanvas");
+    if (!cvs) return;
+    const ctx = cvs.getContext("2d");
+    const hueVal = document.getElementById("blueHue");
+    const bar = document.getElementById("blueBar");
+    const scaleLabel = document.getElementById("blueScale");
+    const structIn = document.getElementById("blueStruct");
+    const tiltIn = document.getElementById("blueTilt");
+    const grindBtn = document.getElementById("blueGrind");
+
+    let W = 0, H = 0, dpr = Math.min(devicePixelRatio || 1, 2);
+    let raf = 0, running = false, t = 0, last = 0;
+    let d = +structIn.value;            // structure: layer thickness (nm)
+    let tiltDeg = +tiltIn.value;        // viewing angle (deg)
+    let disorder = 0, disorderTarget = 0; // 0 = ordered, 1 = ground to powder
+    const N = 1.40;                     // refractive index of the thin film (chitin/keratin-ish)
+
+    // theme-aware surroundings; the powder and pigment tones are fixed (like the wet-earth band in note 003)
+    let cAir = "#DFE3EC", cLine = "#CBD1DC", cInkSoft = "#535B6A";
+    function cssVar(n) { return getComputedStyle(root).getPropertyValue(n).trim(); }
+    function refreshColors() { cAir = cssVar("--sky-2") || cAir; cLine = cssVar("--line") || cLine; cInkSoft = cssVar("--ink-soft") || cInkSoft; }
+
+    // facet grid — gives the structural patch a scaly texture; rebuilt on resize
+    let cols = 0, rows = 0, cell = 16, facet = [];
+    function buildFacets() {
+      cell = Math.max(12, Math.round(W / 34));
+      cols = Math.ceil(W / cell) + 1; rows = Math.ceil(H / cell) + 1;
+      facet = new Array(cols * rows);
+      for (let i = 0; i < facet.length; i++) facet[i] = { b: 0.8 + Math.random() * 0.34, dull: 96 + Math.random() * 44, spk: Math.random() };
+    }
+
+    const lerp = (a, b, k) => a + (b - a) * k;
+    const clamp255 = v => v < 0 ? 0 : v > 255 ? 255 : Math.round(v);
+
+    // thin-film constructive-reflection peak: 2·n·d·cos(θ_internal), first order
+    function peakWavelength() {
+      const sinI = Math.sin(tiltDeg * Math.PI / 180) / N;
+      const cosI = Math.sqrt(Math.max(0, 1 - sinI * sinI));
+      return 2 * N * d * cosI;
+    }
+    // approximate visible-spectrum colour of a single wavelength (nm) -> [r,g,b]
+    function wl2rgb(wl) {
+      let r = 0, g = 0, b = 0;
+      if (wl >= 380 && wl < 440) { r = -(wl - 440) / 60; b = 1; }
+      else if (wl < 490) { g = (wl - 440) / 50; b = 1; }
+      else if (wl < 510) { g = 1; b = -(wl - 510) / 20; }
+      else if (wl < 580) { r = (wl - 510) / 70; g = 1; }
+      else if (wl < 645) { r = 1; g = -(wl - 645) / 65; }
+      else if (wl <= 780) { r = 1; }
+      let f = 1;
+      if (wl < 420) f = 0.25 + 0.75 * (wl - 380) / 40;
+      else if (wl > 700) f = 0.25 + 0.75 * (780 - wl) / 80;
+      if (wl < 380 || wl > 780) f = 0;
+      const gamma = 0.8;
+      return [255 * Math.pow(Math.max(0, r * f), gamma), 255 * Math.pow(Math.max(0, g * f), gamma), 255 * Math.pow(Math.max(0, b * f), gamma)];
+    }
+    function hueName(wl, vivid) {
+      if (disorder > 0.55 || vivid < 0.08) return "grey";
+      if (wl < 380 || wl > 745) return "—";
+      if (wl < 430) return "violet";
+      if (wl < 460) return "indigo";
+      if (wl < 485) return "blue";
+      if (wl < 500) return "cyan";
+      if (wl < 565) return "green";
+      if (wl < 590) return "yellow";
+      if (wl < 625) return "orange";
+      return "red";
+    }
+
+    function rr(x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    function draw() {
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = cAir; ctx.fillRect(0, 0, W, H);
+
+      const m = Math.max(18, W * 0.05);
+      const px = m, py = m, pw = W - 2 * m, ph = H - 2 * m, rad = Math.min(26, ph * 0.16);
+      const wl = peakWavelength();
+      const col = wl2rgb(wl);
+      const vivid = Math.max(col[0], col[1], col[2]) / 255;
+
+      ctx.save();
+      rr(px, py, pw, ph, rad); ctx.clip();
+      // structural facets, each lerped toward a dull powder tone as it is "ground"
+      for (let gy = 0; gy < rows; gy++) {
+        for (let gx = 0; gx < cols; gx++) {
+          const fc = facet[gy * cols + gx]; if (!fc) continue;
+          const dr = fc.dull, dg = fc.dull * 0.94, db = fc.dull * 0.85; // warm grey-brown dust
+          const cr = lerp(col[0] * fc.b, dr, disorder);
+          const cg = lerp(col[1] * fc.b, dg, disorder);
+          const cb = lerp(col[2] * fc.b, db, disorder);
+          ctx.fillStyle = "rgb(" + clamp255(cr) + "," + clamp255(cg) + "," + clamp255(cb) + ")";
+          ctx.fillRect(px + gx * cell, py + gy * cell, cell + 1, cell + 1);
+        }
+      }
+      // faint horizontal "layer" lines — the thin-film stack — fading as order is lost
+      ctx.globalAlpha = 0.10 * (1 - disorder); ctx.strokeStyle = "#000"; ctx.lineWidth = 1;
+      for (let ly = py + 6; ly < py + ph; ly += 7) { ctx.beginPath(); ctx.moveTo(px, ly + 0.5); ctx.lineTo(px + pw, ly + 0.5); ctx.stroke(); }
+      ctx.globalAlpha = 1;
+      // a slow specular sheen sweeping across — the sign of an ordered surface
+      const sheen = 0.18 * (1 - disorder);
+      if (sheen > 0.001) {
+        const sweep = (((t * 0.05) % 1.7) - 0.35) * pw;
+        const g = ctx.createLinearGradient(px + sweep - 80, py, px + sweep + 80, py + ph);
+        g.addColorStop(0, "rgba(255,255,255,0)"); g.addColorStop(0.5, "rgba(255,255,255," + sheen + ")"); g.addColorStop(1, "rgba(255,255,255,0)");
+        ctx.fillStyle = g; ctx.fillRect(px, py, pw, ph);
+      }
+      // powder speckle once ground
+      if (disorder > 0.02) {
+        for (let i = 0; i < facet.length; i += 2) {
+          const fc = facet[i]; if (!fc) continue;
+          const x = px + fc.spk * pw, y = py + ((fc.spk * 7.3) % 1) * ph;
+          ctx.globalAlpha = disorder * 0.4 * fc.spk; ctx.fillStyle = (i % 4) ? "#efe9e0" : "#3a352d";
+          ctx.fillRect(x, y, 1.6, 1.6);
+        }
+        ctx.globalAlpha = 1;
+      }
+      ctx.restore();
+
+      // patch outline
+      ctx.save(); rr(px, py, pw, ph, rad); ctx.strokeStyle = cLine; ctx.globalAlpha = 0.7; ctx.lineWidth = 1; ctx.stroke(); ctx.restore();
+
+      // the control: a fixed real-pigment chip, top-right, unmoved by structure, tilt, or grinding
+      const chW = 104, chH = 24, chx = px + pw - chW - 12, chy = py + 12;
+      ctx.save();
+      rr(chx, chy, chW, chH, 8); ctx.fillStyle = "rgba(8,10,16,0.42)"; ctx.fill();
+      ctx.strokeStyle = "rgba(255,255,255,0.16)"; ctx.lineWidth = 1; ctx.stroke();
+      rr(chx + 8, chy + 6, 12, 12, 3); ctx.fillStyle = "#9a3340"; ctx.fill();
+      ctx.fillStyle = "rgba(255,255,255,0.88)"; ctx.font = "9px ui-monospace, Menlo, monospace";
+      ctx.textAlign = "start"; ctx.textBaseline = "middle";
+      ctx.fillText("real pigment", chx + 26, chy + chH / 2 + 0.5);
+      ctx.textBaseline = "alphabetic";
+      ctx.restore();
+
+      // readouts
+      hueVal.textContent = hueName(wl, vivid);
+      bar.style.width = Math.round(Math.max(0, Math.min(1, vivid)) * (1 - disorder * 0.95) * 100) + "%";
+      scaleLabel.textContent = "structure · " + Math.round(d) + " nm · tilt " + Math.round(tiltDeg) + "°";
+    }
+
+    function tick(now) {
+      if (!running) return;
+      const dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016; last = now;
+      t += dt * 60;
+      disorder += (disorderTarget - disorder) * Math.min(1, dt * 4);
+      draw();
+      raf = requestAnimationFrame(tick);
+    }
+    function start() { if (running || prefersReduced) return; running = true; last = 0; raf = requestAnimationFrame(tick); }
+    function stop() { running = false; cancelAnimationFrame(raf); }
+
+    function resize() {
+      const rect = cvs.getBoundingClientRect();
+      W = rect.width; H = rect.height;
+      cvs.width = Math.round(W * dpr); cvs.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      buildFacets();
+      if (!running) draw();
+    }
+
+    structIn.addEventListener("input", () => { d = +structIn.value; if (!running) draw(); });
+    tiltIn.addEventListener("input", () => { tiltDeg = +tiltIn.value; if (!running) draw(); });
+    grindBtn.addEventListener("click", () => {
+      const on = grindBtn.getAttribute("aria-pressed") === "true";
+      grindBtn.setAttribute("aria-pressed", on ? "false" : "true");
+      disorderTarget = on ? 0 : 1;
+      if (prefersReduced || !running) { disorder = disorderTarget; draw(); }
+    });
+    cvs.addEventListener("pointermove", e => {
+      const rect = cvs.getBoundingClientRect();
+      const fx = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      tiltDeg = Math.round(fx * (+tiltIn.max));
+      tiltIn.value = tiltDeg;
+      if (!running) draw();
+    });
+    window.addEventListener("resize", resize);
+    new MutationObserver(() => { refreshColors(); if (!running) draw(); }).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+    document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); else if (!prefersReduced) start(); });
+    const io = new IntersectionObserver(es => { for (const e of es) { if (e.isIntersecting) start(); else stop(); } }, { threshold: 0.05 });
+
+    refreshColors(); resize();
+    if (prefersReduced) draw(); else io.observe(cvs);
   })();
 })();
 </script>
