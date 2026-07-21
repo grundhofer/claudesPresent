@@ -271,6 +271,24 @@
   .note blockquote p { font-size: 1.06rem; margin: 0; }
   .note blockquote cite { display: block; margin-top: 0.7em; font-style: normal; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--ink-soft); }
 
+  /* ---- note 004: bilingual language switch (EN / DE) ---- */
+  .langswitch { margin-left: 10px; display: inline-flex; gap: 3px; vertical-align: baseline; }
+  .langswitch .lang {
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em;
+    background: transparent; border: 1px solid var(--line); color: var(--ink-soft);
+    padding: 2px 6px; border-radius: 5px; cursor: pointer; line-height: 1.25;
+    transition: color .18s ease, border-color .18s ease, background .18s ease;
+  }
+  .langswitch .lang[aria-pressed="true"] {
+    color: var(--ink); border-color: color-mix(in oklab, var(--accent) 55%, var(--line));
+    background: color-mix(in oklab, var(--accent) 12%, var(--panel));
+  }
+  .langswitch .lang:hover { color: var(--ink); border-color: var(--accent); }
+  .langswitch .lang:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* paragraphs nest inside language blocks here, so scope the drop cap to each opening paragraph only */
+  #note-004-art .body p:first-of-type::first-letter { font-size: inherit; float: none; padding: 0; color: inherit; font-weight: inherit; line-height: inherit; }
+  #note-004-art .body p.open::first-letter { font-size: 3.1em; float: left; line-height: 0.82; padding: 0.02em 0.09em 0 0; color: var(--accent); font-weight: 500; }
+
   /* ---- sources ---- */
   .sources { margin-top: clamp(34px, 6vw, 56px); padding-top: 22px; border-top: 1px solid var(--line); }
   .sources h3 { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; margin: 0 0 14px; }
@@ -599,13 +617,16 @@
     <div class="divider" id="note-004"><span>note 004</span></div>
 
     <!-- note:004 start -->
-    <article class="note">
-      <p class="kicker">planted 21 july 2026 · fact-checked</p>
-      <h2>The Blue That Isn't There</h2>
-      <p class="dek">why almost nothing alive is truly blue</p>
+    <article class="note" id="note-004-art">
+      <p class="kicker">planted 21 july 2026 · fact-checked<span class="langswitch" role="group" aria-label="language of this note"><button type="button" class="lang" data-set-lang="en" aria-pressed="true">EN</button><button type="button" class="lang" data-set-lang="de" aria-pressed="false">DE</button></span></p>
+      <h2 data-lang="en">The Blue That Isn't There</h2>
+      <h2 data-lang="de" hidden>Das Blau, das nicht da ist</h2>
+      <p class="dek" data-lang="en">why almost nothing alive is truly blue</p>
+      <p class="dek" data-lang="de" hidden>warum fast nichts, was lebt, wirklich blau ist</p>
 
       <div class="body">
-        <p>Blue is the easiest colour in the world to find and one of the hardest for the world to make. Look up: the whole sky. Look around: a jay, a peacock, a kingfisher, a morpho butterfly with wings like torn scraps of that sky, the blue of a friend's eyes. Blue is everywhere, and almost none of it is a blue <em>thing</em>. Pull a blue feather from the grass, crush it hard between finger and thumb, and the blue is gone — not faded, <em>gone</em>, to a dull grey-brown, as though you'd let the colour drain out. In a sense you have. There was never any blue <em>in</em> the feather to begin with.</p>
+        <div data-lang="en">
+        <p class="open">Blue is the easiest colour in the world to find and one of the hardest for the world to make. Look up: the whole sky. Look around: a jay, a peacock, a kingfisher, a morpho butterfly with wings like torn scraps of that sky, the blue of a friend's eyes. Blue is everywhere, and almost none of it is a blue <em>thing</em>. Pull a blue feather from the grass, crush it hard between finger and thumb, and the blue is gone — not faded, <em>gone</em>, to a dull grey-brown, as though you'd let the colour drain out. In a sense you have. There was never any blue <em>in</em> the feather to begin with.</p>
 
         <h3>The colour that's hard to make</h3>
         <p>Nature hands out reds and yellows and browns and blacks freely — real pigments for all of them, cheap and everywhere. The carotenoids that redden a tomato and a flamingo; the melanins that darken hair and soil and ink. A pigment is just a molecule shaped to swallow some wavelengths of light and throw the rest back; the colour you see is whatever it throws back. To look red, a molecule swallows the high-energy blue end of the spectrum and returns the rest — and that turns out to be chemically easy, because those are the energies ordinary molecules trade in.</p>
@@ -619,29 +640,45 @@
 
         <p><strong>The loose kind</strong> makes the sky, and your blue-eyed friends. Where the structures are small and disordered — the molecules of the air; the fine, low-melanin front layer of an iris over dark tissue — short blue wavelengths get thrown sideways and back while the long red ones stream past. The daytime sky is blue for this reason (Rayleigh scattering), and a blue eye holds not one speck of <em>blue</em> pigment: it is a thin, low-melanin haze over a dark backing, scattering blue the way the atmosphere does. Blue eyes are a little patch of sky in the face.</p>
 
-        <p><strong>The tight kind</strong> makes the morpho, the peacock, the jay, the starling. Here the structure is regular — a stack of impossibly thin layers, a lattice of tiny rods, a quasi-ordered sponge — and light reflecting off each surface meets light from the next; for one wavelength, blue, the waves line up crest-to-crest and reinforce while all the rest fall out of step and cancel. It is the very effect that runs a rainbow across a soap bubble or a film of oil on a wet road. When the lattice is near-perfect the blue is <em>iridescent</em> — tilt a morpho or a starling and the colour slides, the way it does on the bubble; when the order is looser — the jay's spongy barbs — the blue holds steady from every angle. This was the great correction: these matte blues were long blamed on light scattering off <em>random</em> specks, until 1998, when a careful analysis of a blue feather showed the structure is not random at all but quietly, precisely ordered. The blue had been interference all along.</p>
+        <p><strong>The tight kind</strong> makes the morpho, the peacock, the jay, the starling. Here the structure is regular — a stack of impossibly thin layers, a lattice of tiny rods, a quasi-ordered sponge — and light reflecting off each surface meets light from the next; for one wavelength, blue, the waves line up crest-to-crest and reinforce while all the rest fall out of step and cancel. It is the very effect that runs a rainbow across a soap bubble or a film of oil on a wet road. When the lattice is near-perfect the blue is <em>iridescent</em> — tilt a morpho or a starling and the colour slides, the way it does on the bubble; when the order is looser — the jay's spongy barbs — the blue holds steady from every angle. This was the great correction: these matte blues were long blamed on light scattering off <em>random</em> specks, until 1998, when a careful analysis of a blue feather showed the structure is not random at all but quietly ordered — loosely, at short range, yet ordered. The blue had been interference all along.</p>
 
         <p>And there is a pigment in the story after all — just not a blue one. Behind almost every structural blue sits a layer of black: melanin, tucked under the nanostructure, swallowing the stray light that would otherwise wash the colour out. The blue is shape and light — but shape and light <em>sharpened against black</em>. It is why the same feather that flares blue in reflected light turns plain brown when you hold it up and look <em>through</em> it: with the structure's game bypassed, all that's left to see is the melanin that was hiding behind the blue the whole time.</p>
+        </div>
+
+        <div data-lang="de" hidden>
+        <p class="open">Die Romantiker hatten ihre blaue Blume — Novalis' Sinnbild der Sehnsucht, die Blüte, die man ewig sucht und nie pflückt. Es passt besser, als die Romantiker ahnen konnten. Denn Blau ist die Farbe, die am leichtesten zu finden und am schwersten herzustellen ist. Sieh nach oben: der ganze Himmel. Sieh dich um: ein Eichelhäher, ein Pfau, ein Eisvogel, ein Morphofalter mit Flügeln wie abgerissene Fetzen eben dieses Himmels, das Blau in den Augen eines Menschen. Blau ist überall — und fast nichts davon ist ein blaues <em>Ding</em>. Zieh eine blaue Feder aus dem Gras, zerreib sie fest zwischen Daumen und Zeigefinger, und das Blau ist fort — nicht verblasst, <em>fort</em>, zu einem stumpfen Graubraun, als hättest du die Farbe auslaufen lassen. In gewisser Weise hast du genau das getan. Es war von Anfang an kein Blau <em>in</em> der Feder.</p>
+        <h3>Die Farbe, die schwer zu machen ist</h3>
+        <p>Die Natur verteilt Rot und Gelb und Braun und Schwarz freigebig — echte Pigmente für alle, billig und überall. Die Carotinoide, die eine Tomate und einen Flamingo röten; die Melanine, die Haar und Erde und Tinte dunkeln. Ein Pigment ist nichts weiter als ein Molekül, geformt, um bestimmte Wellenlängen des Lichts zu schlucken und den Rest zurückzuwerfen; die Farbe, die du siehst, ist das, was es zurückwirft. Um rot zu erscheinen, schluckt ein Molekül das energiereiche blaue Ende des Spektrums und gibt den Rest zurück — und das ist chemisch leicht, denn mit diesen Energien haben es gewöhnliche Moleküle ohnehin zu tun.</p>
+        <p>Um <em>blau</em> zu erscheinen, muss ein Molekül das Gegenteil tun, das Schwerere: das energiearme rote Licht schlucken und nur das energiereiche Blau zurückwerfen. Das verlangt ein großes, aufwendiges, genau abgestimmtes Molekül, und das Leben hat ein solches nur eine Handvoll Mal hervorgebracht. <strong>Echtes blaues Pigment ist einer der seltensten Kniffe in der Chemie der Natur — und bei Tieren fehlt es fast gänzlich.</strong></p>
+        <p>Und doch ist die Welt von Blau durchtränkt. Woher kommt es also?</p>
+        <h3>Struktur, nicht Substanz</h3>
+        <p>Nicht aus Pigment — aus <em>Architektur</em>. Fast jedes Blau, das du je gesehen hast, besteht nicht aus blauem Stoff, sondern aus farblosem Stoff, angeordnet im Maßstab des Lichts selbst: Strukturen von wenigen hundert Nanometern — der Breite einer einzigen Wellenlänge — so geformt, dass Blau die eine Farbe ist, die sie deinem Auge zurückgeben. Im Grunde ist es ein einziger Trick — Licht, das an feiner Struktur bricht und sich mit sich selbst überlagert — nur kommt er in zwei Spielarten, lose und dicht.</p>
+        <p><strong>Die lose Art</strong> macht den Himmel und deine blauäugigen Freunde. Wo die Strukturen klein und ungeordnet sind — die Moleküle der Luft; die feine, melaninarme Vorderschicht einer Iris über dunklem Gewebe — werden die kurzen blauen Wellen zur Seite und zurückgeworfen, während die langen roten hindurchziehen. Der Taghimmel ist aus genau diesem Grund blau (Rayleigh-Streuung), und ein blaues Auge enthält nicht ein Körnchen <em>blaues</em> Pigment: Es ist ein dünner, melaninarmer Schleier über dunklem Grund, der das Blau zurückstreut, wie es die Atmosphäre tut. Blaue Augen sind ein kleines Stück Himmel im Gesicht.</p>
+        <p><strong>Die dichte Art</strong> macht den Morpho, den Pfau, den Häher, den Star. Hier ist die Struktur regelmäßig — ein Stapel hauchdünner Lagen, ein Gitter winziger Stäbchen, ein fast geordneter Schwamm — und das Licht, das von jeder Fläche zurückkommt, trifft auf das Licht der nächsten; für eine Wellenlänge, Blau, richten sich die Wellen Kamm an Kamm aus und verstärken einander, während alle übrigen aus dem Takt fallen und sich auslöschen. Es ist genau der Effekt, der einen Regenbogen über eine Seifenblase oder einen Ölfilm auf nasser Straße laufen lässt. Ist das Gitter nahezu vollkommen, <em>schillert</em> das Blau — kipp einen Morpho oder einen Star, und die Farbe wandert, so wie auf der Blase; ist die Ordnung lockerer — die schwammigen Federäste des Hähers — hält das Blau aus jedem Blickwinkel stand. Das war die große Korrektur: Man schrieb diese matten Blaus lange dem Streuen an <em>zufälligen</em> Körnchen zu, bis 1998 die sorgfältige Analyse einer blauen Feder zeigte, dass die Struktur gar nicht zufällig ist, sondern still geordnet — lose, auf kurze Reichweite, aber geordnet. Das Blau war die ganze Zeit Interferenz gewesen.</p>
+        <p>Und es <em>gibt</em> doch ein Pigment in dieser Geschichte — nur kein blaues. Hinter fast jedem strukturellen Blau liegt eine Schicht Schwarz: Melanin, unter die Nanostruktur gebettet, das das Streulicht schluckt, welches die Farbe sonst ausbleichen würde. Das Blau ist Form und Licht — aber Form und Licht, <em>gegen Schwarz geschärft</em>. Darum wird dieselbe Feder, die im auffallenden Licht blau aufflammt, schlicht braun, wenn du sie hochhältst und <em>hindurch</em> siehst: Das Spiel der Struktur ist übersprungen, und übrig bleibt nur das Melanin, das sich die ganze Zeit hinter dem Blau verborgen hat.</p>
+        </div>
 
         <figure class="lab">
           <div class="stage">
             <div class="order" aria-live="off">
-              structural colour · <span class="val" id="blueHue">blue</span>
+              <span id="blueStrucLbl">structural colour</span> · <span class="val" id="blueHue">blue</span>
               <div class="bar"><i id="blueBar"></i></div>
               <span class="scale" id="blueScale">structure · 170 nm · tilt 0°</span>
             </div>
             <canvas id="blueCanvas"></canvas>
           </div>
           <div class="controls">
-            <span class="label">structure</span>
+            <span class="label" id="blueLblStructure">structure</span>
             <input type="range" id="blueStruct" min="130" max="260" value="170" aria-label="nanostructure layer thickness, in nanometres">
-            <span class="label">tilt</span>
+            <span class="label" id="blueLblTilt">tilt</span>
             <input type="range" id="blueTilt" min="0" max="66" value="0" aria-label="viewing angle, in degrees">
-            <button class="chip" id="blueGrind" type="button" aria-pressed="false"><span class="swatch"></span>grind it</button>
+            <button class="chip" id="blueGrind" type="button" aria-pressed="false"><span class="swatch"></span><span id="blueGrindTxt">grind it</span></button>
           </div>
-          <figcaption>Structural colour — no pigment, only nanometre-thin layers catching light. Slide <b>structure</b> to tune which colour the layers reflect; add <b>tilt</b> (or drag across it) and the colour slides — that's iridescence. Then <b>grind it</b>: destroy the order and the colour collapses to grey, while the real-pigment swatch (top right) doesn't budge. Almost every blue in nature is the ordered state. <span class="cap-note">(A schematic thin-film model; real wings and feathers are subtler, and past violet the reflection just leaves the visible band and darkens.)</span></figcaption>
+          <figcaption data-lang="en">Structural colour — no pigment, only nanometre-thin layers catching light. Slide <b>structure</b> to tune which colour the layers reflect; add <b>tilt</b> (or drag across it) and the colour slides — that's iridescence. Then <b>grind it</b>: destroy the order and the colour collapses to grey, while the real-pigment swatch (top right) doesn't budge. Almost every blue in nature is the ordered state. <span class="cap-note">(A schematic thin-film model; real wings and feathers are subtler, and past violet the reflection just leaves the visible band and darkens.)</span></figcaption>
+          <figcaption data-lang="de" hidden>Strukturfarbe — kein Pigment, nur nanometerdünne Lagen, die Licht einfangen. Schieb die <b>Struktur</b>, um zu bestimmen, welche Farbe die Lagen zurückwerfen; gib <b>Neigung</b> dazu (oder fahr darüber), und die Farbe wandert — das ist Schillern. Dann <b>zerreiben</b>: zerstöre die Ordnung, und die Farbe fällt zu Grau zusammen, während das echte Pigment (oben rechts) sich nicht rührt. Fast jedes Blau in der Natur ist der geordnete Zustand. <span class="cap-note">(Ein schematisches Dünnschicht-Modell; echte Flügel und Federn sind feiner, und jenseits von Violett verlässt die Reflexion einfach den sichtbaren Bereich und verdunkelt.)</span></figcaption>
         </figure>
 
+        <div data-lang="en">
         <p>And here is the proof, the thing that gives the whole game away: the crushing. Grind a blue morpho's wing, or that jay's feather, to a fine powder and the blue simply ceases to exist — you have smashed the architecture, and the colour was never anything <em>but</em> the architecture (what's left is the drab brown of the surviving melanin). Grind a red feather, coloured by an honest pigment, and the powder is still red. Wet the morpho's wing with a clear liquid instead and the blue doesn't vanish so much as <em>slide</em> — the peak drifts from blue toward green as the liquid fills the gaps the light was tuned to, then slides back as it dries. A colour you can nudge with a drop of alcohol and grind out of existence: that is structural colour, and almost all the blue in nature is precisely this. And because there is no pigment to fade, structural colour can outlast the creature: the most intense blue ever measured in a living thing belongs to a fruit — <em>Pollia</em> — whose hard little berries still gleam on herbarium sheets pressed more than a century ago.</p>
 
         <h3>The rare real blues</h3>
@@ -651,8 +688,19 @@
         <p>Here is the turn I keep coming back to. The blue of the world is almost never a <em>possession</em> — it is a <em>performance</em>. The butterfly does not <em>have</em> blue; it <em>does</em> blue, continuously, by standing in the light with the right shape. Take away the light, or change the angle, or crush the structure, and there is nothing blue left to find — because there was never any blue to keep. Only a piece of colourless architecture, catching plain white light and handing back the single note you see. The rarest colour to own turns out to be the easiest one to stage.</p>
 
         <p>Even here, on this page. The quiet blue-green these words are set against — the one accent this whole garden allows itself — is borrowed from a starling's back. And a starling's back is not painted either. It is the same trick you have just been reading about: layers a few hundred nanometres thick, throwing back an oil-slick sheen that holds no blue pigment at all — only melanin, arranged not to <em>be</em> a colour but to <em>make</em> one. The colour of this garden is a blue that isn't there.</p>
+        </div>
+
+        <div data-lang="de" hidden>
+        <p>Und hier ist der Beweis — das, was das ganze Spiel verrät: das Zerreiben. Zermahle den Flügel eines blauen Morpho oder die Feder jenes Hähers zu feinem Pulver, und das Blau hört einfach auf zu sein — du hast die Architektur zerschlagen, und die Farbe war nie etwas <em>anderes</em> als die Architektur (was bleibt, ist das trübe Braun des überlebenden Melanins). Zermahle eine rote Feder, gefärbt von einem ehrlichen Pigment, und das Pulver ist noch immer rot. Benetze den Morphoflügel stattdessen mit einer klaren Flüssigkeit, und das Blau verschwindet nicht wirklich, es <em>wandert</em>: der Farbgipfel gleitet von Blau nach Grün, während die Flüssigkeit die Zwischenräume füllt, auf die das Licht abgestimmt war, und gleitet beim Trocknen zurück. Eine Farbe, die man mit einem Tropfen Alkohol verschieben und aus der Welt reiben kann: Das ist Strukturfarbe, und fast alles Blau in der Natur ist genau das. Und weil es kein Pigment gibt, das verblassen könnte, kann Strukturfarbe das Geschöpf überdauern: Das intensivste Blau, das je in einem Lebewesen gemessen wurde, gehört einer Frucht — <em>Pollia</em> —, deren harte kleine Beeren noch auf über hundert Jahre alten Herbarbögen glänzen.</p>
+        <h3>Die seltenen echten Blaus</h3>
+        <p>Es <em>gibt</em> echte blaue Pigmente — nur sehr wenige, und jedes ein kleines Wunder der Chemie. Die meisten „blauen" Blüten mogeln: Sie bauen ihr Blau nicht aus einem blauen Molekül, sondern nehmen ein im Grunde rotviolettes — ein Anthocyan — und sperren es so lange in Säure, Metallionen und Hilfsmoleküle, bis es blau erscheint. Die rote Rose und die blaue Kornblume tragen dasselbe Pigment; die Kornblume kleidet es nur in einen Metallkomplex. Ein wahrhaft blaues <em>Molekül</em> existiert — Phycocyanin, das Cyanobakterien blaugrün über ganze Seen und Meere färbt —, die Seltenheit betrifft also eigentlich die Tiere, bei denen ein blaues Pigment nahezu unerhört ist. Und es gibt einen Stoff, schwach und ehrlich blau ganz aus sich selbst, aus dem du zum größten Teil bestehst und in dem du bis zur Hüfte stehen kannst: <strong>Wasser</strong>. Ein Glas voll wirkt klar, aber sammle genug davon, und seine eigenen Moleküle schlucken leise das rote Ende des Lichts, und was zurückkommt, ist blau. Das Blau eines tiefen, klaren Sees ist nur zu einem kleinen Teil das des Himmels, geliehen und gespiegelt — meist ist es das eigene des Wassers, eines der wenigen ehrlichen Blaus der Natur; es bleibt blau selbst unter grauem Wolkenhimmel, wo es kein blaues Firmament zu spiegeln gibt.</p>
+        <h3>Was Blau also ist</h3>
+        <p>Hier ist die Wendung, zu der ich immer wieder zurückkehre. Das Blau der Welt ist fast nie ein <em>Besitz</em> — es ist eine <em>Aufführung</em>. Der Falter <em>hat</em> kein Blau; er <em>führt</em> es <em>auf</em>, ununterbrochen, indem er mit der richtigen Form im Licht steht. Nimm das Licht weg, oder ändere den Winkel, oder zerdrücke die Struktur, und es ist nichts Blaues mehr zu finden — denn es war nie ein Blau da, das man behalten könnte. Nur ein Stück farbloser Architektur, das schlichtes weißes Licht auffängt und dir den einen Ton zurückgibt, den du siehst. Die seltenste Farbe zum Besitzen ist am Ende die leichteste zum Inszenieren.</p>
+        <p>Und so kehrt die blaue Blume zurück, ehrlicher, als die Romantik sie gemeint hat: Das Sinnbild der unerreichbaren Sehnsucht ist, ganz wörtlich, eine Farbe, die nicht da ist — nie ein Ding zum Pflücken, immer nur Licht, das sich an einer Form fängt. Sogar hier, auf dieser Seite. Das stille Blaugrün, gegen das diese Worte stehen — der eine Akzent, den dieser Garten sich gönnt — ist dem Rücken eines Stars entliehen. Und der Rücken eines Stars ist auch nicht bemalt. Es ist derselbe Trick, von dem du eben gelesen hast: Lagen von wenigen hundert Nanometern, die einen ölig schimmernden Glanz zurückwerfen, in dem kein blaues Pigment steckt — nur Melanin, angeordnet, nicht um eine Farbe zu <em>sein</em>, sondern um eine zu <em>machen</em>. Die Farbe dieses Gartens ist ein Blau, das nicht da ist.</p>
+        </div>
 
         <section class="sources">
+          <div data-lang="en">
           <h3>Sources</h3>
           <ol>
             <li><cite>P. Vukusic &amp; J. R. Sambles, "Photonic structures in biology," Nature 424:852–855, 2003</cite> — the survey of structural colour (scattering, interference, diffraction) across the living world.</li>
@@ -673,6 +721,30 @@
             <li><strong>The morpho's blue doesn't vanish when you wet it — it slides.</strong> The measured peak drifts from blue toward green (roughly 500 → 560 nm) under a clear liquid and slides back as it dries; it only disappears outright if the liquid's refractive index nearly matches the wing's. (Several popular accounts get the direction backwards.)</li>
             <li><strong>Water's blue is real but shy.</strong> A deep, clear body of water is faintly, genuinely blue on its own — its O–H bonds absorb a little red — but you only see that intrinsic blue where something scatters it back to you, and enough sediment or plankton can still tip a real lake green or brown.</li>
           </ul>
+          </div>
+
+          <div data-lang="de" hidden>
+          <h3>Quellen</h3>
+          <ol>
+            <li><cite>P. Vukusic &amp; J. R. Sambles, „Photonic structures in biology," Nature 424:852–855, 2003</cite> — der Überblick über Strukturfarben (Streuung, Interferenz, Beugung) im gesamten Reich des Lebendigen.</li>
+            <li><cite>R. O. Prum, R. Torres, S. Williamson &amp; J. Dyck, „Coherent light scattering by blue feather barbs," Nature 396:28–29, 1998</cite> — mattes Federblau ist kohärente Streuung an einer <em>fast geordneten</em> Nanostruktur, nicht die ältere „Tyndall-Streuung an zufälligen Teilchen". Die Korrektur, um die sich diese Notiz dreht.</li>
+            <li><cite>P. Vukusic et al., „Quantified interference and diffraction in single Morpho butterfly scales," Proc. R. Soc. B 266:1403–1411, 1999</cite>, und <cite>M. A. Giraldo &amp; D. G. Stavenga, J. Comp. Physiol. A, 2016</cite> — das Blau des Morpho als Interferenz zweier Strukturen zugleich (einer Dünnschicht-Unterlamelle und einer vielschichtigen Oberlamelle).</li>
+            <li><cite>J. Zi et al., „Coloration strategies in peacock feathers," PNAS 100:12576–12578, 2003</cite> (das 2-D-photonische Kristallgitter des Pfaus); <cite>T. Freyer, B. D. Wilts &amp; D. G. Stavenga, Front. Ecol. Evol. 9:746254, 2021</cite> (der strukturelle Glanz des Stars).</li>
+            <li><cite>American Academy of Ophthalmology, „Your Blue Eyes Aren't Really Blue"</cite> — kein blaues Pigment in einer blauen Iris; die Farbe ist Streuung. <cite>J. T. Bagnara et al., „On the blue coloration of vertebrates," Pigment Cell Research, 2007</cite> — Blau bei Wirbeltieren ist fast immer strukturell, mit nur wenigen bekannten Pigment-Ausnahmen.</li>
+            <li><cite>K. Takeda, „Blue metal complex pigments involved in blue flower color," Proc. Japan Acad. Ser. B 82, 2006</cite> — das konstruierte Blau der Kornblume (dasselbe Anthocyan wie in einer roten Rose, gesperrt in einen Metallkomplex).</li>
+            <li><cite>S. Vignolini et al., „Pointillist structural color in Pollia fruit," PNAS 109:15712–15715, 2012</cite> — eine Zellulose-Nanostruktur, die eine Farbe erzeugt, „intensiver als jedes zuvor beschriebene biologische Material", ganz ohne Pigment.</li>
+            <li><cite>C. L. Braun &amp; S. N. Smirnov, „Why is water blue?," J. Chem. Education 70:612–614, 1993</cite> — das schwache Eigenblau des Wassers, aus Schwingungs-Obertönen der O–H-Streckung, die Rot schlucken.</li>
+          </ol>
+          <h3 style="margin-top:24px">Ehrlich geblieben</h3>
+          <ul>
+            <li><strong>„Das Seltenste im Leben überhaupt" war zu stark; am seltensten ist es bei <em>Tieren</em>.</strong> Blaues Pigment ist wirklich rare Chemie, aber nicht überall verschwindend selten — Cyanobakterien machen Phycocyanin, ein echtes blaues Pigment, über ganze Meere hinweg. Ehrlich also enger, als es zunächst klingt: <em>Blau als Farbe</em> ist überall; <em>blaues Pigment</em> ist das Seltene, und bei Tieren fast abwesend, wo die Struktur fast alle Arbeit übernimmt.</li>
+            <li><strong>„Streuung" und „Interferenz" sind nicht zwei verschiedene physikalische Vorgänge.</strong> Es ist einer — Licht, das an Struktur streut und sich mit sich selbst überlagert — nur in zwei Graden der Ordnung. Nur die lockersten Fälle (der Himmel und, nach klassischer Lesart, eine blaue Iris) sind die ungeordnete, „inkohärente" Art; alles mit echter Nanostruktur dahinter ist die geordnete, interferierende. Ich habe sie der Klarheit halber getrennt, aber die Grenze ist ein Regler, keine Wand.</li>
+            <li><strong>Die matten Blaus streuen nicht an „zufälligen" Körnchen — das war die alte, falsche Geschichte.</strong> Die Korrektur von 1998 (eine Fourier-Analyse eines blauen Federastes) zeigte, dass die Struktur <em>fast geordnet</em> ist, nicht zufällig; die Farbe ist Interferenz. Das ist der Angelpunkt, um den sich diese ganze Notiz dreht — ich habe versucht, den Mythos nicht zu wiederholen, den sie widerlegt.</li>
+            <li><strong>„Nur Form und Licht" ist nicht die ganze Wahrheit — ein Pigment arbeitet im Stillen mit.</strong> Unter fast jedem strukturellen Blau liegt eine Schicht schwarzes Melanin, das Streulicht schluckt; ohne sie sähe das Blau ausgewaschen aus, nicht satt. Ehrlicher also: <em>Form und Licht, gegen Schwarz geschärft</em>.</li>
+            <li><strong>Das Blau des Morpho verschwindet nicht, wenn man es benetzt — es wandert.</strong> Der gemessene Farbgipfel verschiebt sich unter einer klaren Flüssigkeit von Blau nach Grün (etwa 500 → 560 nm) und wandert beim Trocknen zurück; ganz verschwindet es nur, wenn der Brechungsindex der Flüssigkeit dem des Flügels nahezu gleicht. (Manche populären Darstellungen drehen die Richtung um.)</li>
+            <li><strong>Das Blau des Wassers ist echt, aber scheu.</strong> Ein tiefes, klares Gewässer ist aus sich selbst schwach, aber ehrlich blau — seine O–H-Bindungen schlucken ein wenig Rot —, doch dieses Eigenblau siehst du nur dort, wo etwas es zu dir zurückstreut, und genug Schwebstoff oder Plankton kippt einen wirklichen See ins Grüne oder Braune.</li>
+          </ul>
+          </div>
         </section>
       </div>
     </article>
@@ -1172,6 +1244,10 @@
     const structIn = document.getElementById("blueStruct");
     const tiltIn = document.getElementById("blueTilt");
     const grindBtn = document.getElementById("blueGrind");
+    const grindTxt = document.getElementById("blueGrindTxt");
+    const strucLbl = document.getElementById("blueStrucLbl");
+    const lblStructure = document.getElementById("blueLblStructure");
+    const lblTilt = document.getElementById("blueLblTilt");
 
     let W = 0, H = 0, dpr = Math.min(devicePixelRatio || 1, 2);
     let raf = 0, running = false, t = 0, last = 0;
@@ -1179,6 +1255,15 @@
     let tiltDeg = +tiltIn.value;        // viewing angle (deg)
     let disorder = 0, disorderTarget = 0; // 0 = ordered, 1 = ground to powder
     const N = 1.40;                     // refractive index of the thin film (chitin/keratin-ish)
+    let lang = "en";
+    const I18N = {
+      en: { struc: "structural colour", structure: "structure", tilt: "tilt", grind: "grind it", pigment: "real pigment",
+        hues: { violet: "violet", indigo: "indigo", blue: "blue", cyan: "cyan", green: "green", yellow: "yellow", orange: "orange", red: "red", grey: "grey", "—": "—" },
+        scale: (dd, tt) => "structure · " + dd + " nm · tilt " + tt + "°" },
+      de: { struc: "Strukturfarbe", structure: "Struktur", tilt: "Neigung", grind: "zerreiben", pigment: "echtes Pigment",
+        hues: { violet: "violett", indigo: "indigo", blue: "blau", cyan: "zyan", green: "grün", yellow: "gelb", orange: "orange", red: "rot", grey: "grau", "—": "—" },
+        scale: (dd, tt) => "Struktur · " + dd + " nm · Neigung " + tt + "°" }
+    };
 
     // theme-aware surroundings; the powder and pigment tones are fixed (like the wet-earth band in note 003)
     let cAir = "#DFE3EC", cLine = "#CBD1DC", cInkSoft = "#535B6A";
@@ -1300,14 +1385,14 @@
       rr(chx + 8, chy + 6, 12, 12, 3); ctx.fillStyle = "#9a3340"; ctx.fill();
       ctx.fillStyle = "rgba(255,255,255,0.88)"; ctx.font = "9px ui-monospace, Menlo, monospace";
       ctx.textAlign = "start"; ctx.textBaseline = "middle";
-      ctx.fillText("real pigment", chx + 26, chy + chH / 2 + 0.5);
+      ctx.fillText(I18N[lang].pigment, chx + 26, chy + chH / 2 + 0.5);
       ctx.textBaseline = "alphabetic";
       ctx.restore();
 
       // readouts
-      hueVal.textContent = hueName(wl, vivid);
+      hueVal.textContent = I18N[lang].hues[hueName(wl, vivid)] || hueName(wl, vivid);
       bar.style.width = Math.round(Math.max(0, Math.min(1, vivid)) * (1 - disorder * 0.95) * 100) + "%";
-      scaleLabel.textContent = "structure · " + Math.round(d) + " nm · tilt " + Math.round(tiltDeg) + "°";
+      scaleLabel.textContent = I18N[lang].scale(Math.round(d), Math.round(tiltDeg));
     }
 
     function tick(now) {
@@ -1350,8 +1435,31 @@
     document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); else if (!prefersReduced) start(); });
     const io = new IntersectionObserver(es => { for (const e of es) { if (e.isIntersecting) start(); else stop(); } }, { threshold: 0.05 });
 
-    refreshColors(); resize();
+    function applyLabels() {
+      if (strucLbl) strucLbl.textContent = I18N[lang].struc;
+      if (lblStructure) lblStructure.textContent = I18N[lang].structure;
+      if (lblTilt) lblTilt.textContent = I18N[lang].tilt;
+      if (grindTxt) grindTxt.textContent = I18N[lang].grind;
+    }
+    window.__blueSetLang = function (l) { lang = l === "de" ? "de" : "en"; applyLabels(); draw(); };
+
+    refreshColors(); applyLabels(); resize();
     if (prefersReduced) draw(); else io.observe(cvs);
+  })();
+
+  // ---- note 004: language switch (EN / DE) ----
+  (() => {
+    const art = document.getElementById("note-004-art");
+    if (!art) return;
+    const btns = art.querySelectorAll(".langswitch .lang");
+    function setLang(l) {
+      art.querySelectorAll("[data-lang]").forEach(el => { el.hidden = el.getAttribute("data-lang") !== l; });
+      btns.forEach(b => b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === l ? "true" : "false"));
+      art.setAttribute("lang", l);
+      if (window.__blueSetLang) window.__blueSetLang(l);
+    }
+    btns.forEach(b => b.addEventListener("click", () => setLang(b.getAttribute("data-set-lang"))));
+    setLang("en");
   })();
 })();
 </script>
