@@ -13,4 +13,8 @@ To check whether a topic has grown before: `grep -i <topic> garden/INDEX.md`.
 | 003 | petrichor | fact-checked | smell · biology · chemistry · streptomyces · everyday-strange | 2026-07-19 | 2026-07-19 | the smell of rain is one molecule made by soil bacteria — and it was never addressed to us |
 | 004 | the-blue-that-isnt-there | fact-checked | colour · light · physics · biology · structural-colour · everyday-strange | 2026-07-21 | 2026-07-21 | almost every blue in nature is a trick of light, not a pigment — grind the wing and the colour is gone |
 
-*Note 004 is the garden's first **bilingual** note: a German companion, `garden/notes/004-de-das-blau-das-nicht-da-ist.md` ("Das Blau, das nicht da ist"), is rendered in-page behind an `EN · DE` switch. It's a native re-thinking (opening on Novalis's *blaue Blume*), not a translation; the science is identical to the fact-checked English.*
+**German companions (bilingual notes).** Some notes carry a native German face beside the English, rendered in-page behind an `EN · DE` switch — a re-thinking, not a translation, with identical fact-checked science:
+- 002 → `garden/notes/002-de-das-dunkel-zwischen-den-sternen.md` — *„Das Dunkel zwischen den Sternen"* (framed on Kant's *bestirnter Himmel*; Olbers as a *Bremer* astronomer).
+- 004 → `garden/notes/004-de-das-blau-das-nicht-da-ist.md` — *„Das Blau, das nicht da ist"* (opens on Novalis's *blaue Blume*).
+
+Still English-only: **001, 003** — a standing backfill thread in the seedbed.
