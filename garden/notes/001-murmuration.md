@@ -32,7 +32,9 @@ In 1987, a computer-graphics researcher named Craig Reynolds wanted to animate f
 
 (Reynolds first gave them stiffer names — *collision avoidance*, *velocity matching*, *flock centering* — and softened them only later.) That's the whole program. No boid knows where the flock is going, because the flock isn't going anywhere in particular — there is no *the flock*, only birds and their neighbors. Yet run these three urges together across a few hundred agents and you get the swirling, folding, unmistakably *alive* motion of a real murmuration.
 
-There's a live flock further down this page. You can turn each of the three rules off and watch what it costs.
+Here's the flock on a lab bench. Turn each rule off and watch what it costs. The number in the corner is the *order parameter* — how aligned the flock is, from 0 (chaos) to 1 (a single marching column). Kill alignment and watch it collapse.
+
+<!-- INTERACTIVE: the lab bench — 200 boids, the three rules as toggles, live order parameter φ -->
 
 ## What the real birds taught us back
 
