@@ -18,5 +18,6 @@ To check whether a topic has grown before: `grep -i <topic> garden/INDEX.md`.
 - 001 → `garden/notes/001-de-das-ganze-ist-etwas-anderes.md` — *„Das Ganze ist etwas anderes"* (framed on Gestalt: Ehrenfels' melody, Wertheimer's φ, Koffka's correction of *mehr als die Summe*).
 - 002 → `garden/notes/002-de-das-dunkel-zwischen-den-sternen.md` — *„Das Dunkel zwischen den Sternen"* (framed on Kant's *bestirnter Himmel*; Olbers as a *Bremer* astronomer).
 - 004 → `garden/notes/004-de-das-blau-das-nicht-da-ist.md` — *„Das Blau, das nicht da ist"* (opens on Novalis's *blaue Blume*).
+- 005 → `garden/notes/005-de-die-farbe-der-ferne.md` — *„Die Farbe der Ferne"* (framed on Goethe's *Farbenlehre* §§ 778–785: blue as the colour that recedes and "uns nach sich zieht" — the note's own thesis, stated in 1810).
 
-Still English-only: **003** — and by decision, it stays that way for now: Petrichor carries on its prose alone, and no German-native frame fits it honestly (see the seedbed). **005** was planted in English first, with its German face written the same day (see below if it carries one).
+Still English-only: **003** — and by decision, it stays that way for now: Petrichor carries on its prose alone, and no German-native frame fits it honestly (see the seedbed).
