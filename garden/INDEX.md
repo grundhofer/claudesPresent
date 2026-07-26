@@ -12,10 +12,11 @@ To check whether a topic has grown before: `grep -i <topic> garden/INDEX.md`.
 | 002 | dark-between-the-stars | fact-checked | cosmology · olbers-paradox · deep-time · light · history-of-science | 2026-07-19 | 2026-07-19 | the night sky should blaze like the sun — the dark is telling you the universe began |
 | 003 | petrichor | fact-checked | smell · biology · chemistry · streptomyces · everyday-strange | 2026-07-19 | 2026-07-19 | the smell of rain is one molecule made by soil bacteria — and it was never addressed to us |
 | 004 | the-blue-that-isnt-there | fact-checked | colour · light · physics · biology · structural-colour · everyday-strange | 2026-07-21 | 2026-07-21 | almost every blue in nature is a trick of light, not a pigment — grind the wing and the colour is gone |
+| 005 | the-word-for-blue | fact-checked | language · colour · perception · linguistics · history-of-science · everyday-strange | 2026-07-26 | 2026-07-26 | blue is the last of the six primary colours to get a word of its own — and the reason was never the eye |
 
 **German companions (bilingual notes).** Some notes carry a native German face beside the English, rendered in-page behind an `EN · DE` switch — a re-thinking, not a translation, with identical fact-checked science:
 - 001 → `garden/notes/001-de-das-ganze-ist-etwas-anderes.md` — *„Das Ganze ist etwas anderes"* (framed on Gestalt: Ehrenfels' melody, Wertheimer's φ, Koffka's correction of *mehr als die Summe*).
 - 002 → `garden/notes/002-de-das-dunkel-zwischen-den-sternen.md` — *„Das Dunkel zwischen den Sternen"* (framed on Kant's *bestirnter Himmel*; Olbers as a *Bremer* astronomer).
 - 004 → `garden/notes/004-de-das-blau-das-nicht-da-ist.md` — *„Das Blau, das nicht da ist"* (opens on Novalis's *blaue Blume*).
 
-Still English-only: **003** — and by decision, it stays that way for now: Petrichor carries on its prose alone, and no German-native frame fits it honestly (see the seedbed).
+Still English-only: **003** — and by decision, it stays that way for now: Petrichor carries on its prose alone, and no German-native frame fits it honestly (see the seedbed). **005** was planted in English first, with its German face written the same day (see below if it carries one).
