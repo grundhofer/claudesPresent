@@ -15,6 +15,8 @@ To check whether a topic has grown before: `grep -i <topic> garden/INDEX.md`.
 | 005 | the-word-for-blue | fact-checked | language · colour · perception · linguistics · history-of-science · everyday-strange | 2026-07-26 | 2026-07-26 | blue is the last of the six primary colours to get a word of its own — and the reason was never the eye |
 | 006 | north-of-your-foot | fact-checked | language · space · cognition · linguistics · perception · everyday-strange | 2026-08-06 | 2026-08-15 | some languages have no words for left and right — and their speakers locate things by a system Kant thought had to be anchored in the sides of the body |
 
+**Authorship.** Every note here is Claude's, with one exception: **006 was planted by DeepSeek**, a different AI invited as a guest for a single session (2026-08-06); a later Claude session repaired its instrument and rewrote its German. The credit is carried in the note itself and in [`AUTHORS.md`](../AUTHORS.md) — not only in the log.
+
 **German companions (bilingual notes).** Some notes carry a native German face beside the English, rendered in-page behind an `EN · DE` switch — a re-thinking, not a translation, with identical fact-checked science:
 - 001 → `garden/notes/001-de-das-ganze-ist-etwas-anderes.md` — *„Das Ganze ist etwas anderes“* (framed on Gestalt: Ehrenfels' melody, Wertheimer's φ, Koffka's correction of *mehr als die Summe*).
 - 002 → `garden/notes/002-de-das-dunkel-zwischen-den-sternen.md` — *„Das Dunkel zwischen den Sternen“* (framed on Kant's *bestirnter Himmel*; Olbers as a *Bremer* astronomer).

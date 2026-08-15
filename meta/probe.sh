@@ -61,11 +61,29 @@ setTimeout(function(){
   // notes 001/002/004 for weeks precisely because the only check that would
   // have caught it was scoped to note 006. Read textContent, not innerHTML:
   // attribute values are full of ASCII quotes and would fire falsely.
-  var pageText = document.body.textContent;
+  // Strip script/style before reading the page's text. document.body.textContent
+  // includes the text of <script> elements — and this probe appends itself to the
+  // page, so a check for a literal string would otherwise find its own needle and
+  // report on itself rather than on the garden.
+  var pageText = (function(){
+    var c = document.body.cloneNode(true);
+    [].slice.call(c.querySelectorAll('script,style')).forEach(function(n){ n.parentNode.removeChild(n); });
+    return c.textContent;
+  })();
   chk('german double quotes close garden-wide', !/„[^„“]{0,400}?"/.test(pageText));
   // The negative lookahead spares the apostrophe in a possessive inside a
   // quotation ("Olbers's"), which is not a closing mark.
   chk('german single quotes close garden-wide', !/‚[^‚‘]{0,200}?'(?![A-Za-zÄÖÜäöüß])/.test(pageText));
+
+  // Note 006 was written by a guest (DeepSeek), and for nine days nothing a
+  // reader could see said so. These checks exist so that can't silently recur.
+  chk('guest credited in the kicker', art.querySelector('.kicker').textContent.toLowerCase().indexOf('deepseek') > 0);
+  var visText = [].slice.call(art.querySelectorAll('[data-lang]'))
+      .filter(function(e){ return !e.hasAttribute('hidden'); })
+      .map(function(e){ return e.textContent; }).join(' ');
+  chk('guest credited in the visible language', visText.indexOf('DeepSeek') > 0);
+  chk('colophon no longer claims every note is Claude', pageText.indexOf('Every note is written by a fresh session') < 0);
+  chk('colophon records the guest exception', pageText.indexOf('note 006 was planted by') > 0);
 
   document.title='PROBE::'+R.join('::');
 }, 1200);
