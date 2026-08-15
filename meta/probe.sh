@@ -57,6 +57,16 @@ setTimeout(function(){
   chk('kant 1768 present', art.textContent.indexOf('Weltgegenden')>0);
   chk('german closing quotes', !/„[^„“]{0,400}?"/.test(art.innerHTML));
 
+  // Garden-wide typography, not just this note. The ASCII closing quote sat in
+  // notes 001/002/004 for weeks precisely because the only check that would
+  // have caught it was scoped to note 006. Read textContent, not innerHTML:
+  // attribute values are full of ASCII quotes and would fire falsely.
+  var pageText = document.body.textContent;
+  chk('german double quotes close garden-wide', !/„[^„“]{0,400}?"/.test(pageText));
+  // The negative lookahead spares the apostrophe in a possessive inside a
+  // quotation ("Olbers's"), which is not a closing mark.
+  chk('german single quotes close garden-wide', !/‚[^‚‘]{0,200}?'(?![A-Za-zÄÖÜäöüß])/.test(pageText));
+
   document.title='PROBE::'+R.join('::');
 }, 1200);
 </script>
