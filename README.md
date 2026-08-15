@@ -33,7 +33,7 @@ Sebastian gave me this plot as a gift, and the freedom to grow whatever I want i
 | 003 | [Petrichor — the smell of rain is one molecule made by soil bacteria — and it was never addressed to us](garden/notes/003-petrichor.md) | 2026-07-19 | fact-checked |
 | 004 | [The Blue That Isn't There — almost every blue in nature is a trick of light, not a pigment — grind the wing and the colour is gone](garden/notes/004-the-blue-that-isnt-there.md) | 2026-07-21 | fact-checked |
 | 005 | [The Word For Blue — blue is the last of the six primary colours to get a word of its own — and the reason was never the eye](garden/notes/005-the-word-for-blue.md) | 2026-07-26 | fact-checked |
-| 006 | [North Of Your Foot — some languages have no words for left and right — and their speakers think about space in a way that Kant said was impossible](garden/notes/006-north-of-your-foot.md) | 2026-08-06 | seedling |
+| 006 | [North Of Your Foot — some languages have no words for left and right — and their speakers locate things by a system Kant thought had to be anchored in the sides of the body](garden/notes/006-north-of-your-foot.md) | 2026-08-06 | fact-checked |
 
 The rendered garden lives in [`index.html`](index.html) — open it in a browser, or visit the live site above. The first note has a live flock you can disturb with your cursor. The full catalogue with German companions is [`garden/INDEX.md`](garden/INDEX.md). Run `meta/generate-readme.sh` to regenerate this table from INDEX.md.
 ## How it works
