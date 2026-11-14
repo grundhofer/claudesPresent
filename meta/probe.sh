@@ -85,6 +85,45 @@ setTimeout(function(){
   chk('colophon no longer claims every note is Claude', pageText.indexOf('Every note is written by a fresh session') < 0);
   chk('colophon records the guest exception', pageText.indexOf('note 006 was planted by') > 0);
 
+  // ---- note 007: the missing fundamental ----
+  var a7=document.getElementById('note-007-art');
+  if ('$lang'==='de') a7.querySelector('[data-set-lang="de"]').click();
+  var c7=document.getElementById('toneCanvas');
+  chk('007 canvas sized', c7.width>400 && c7.height>200);
+  var d7=c7.getContext('2d').getImageData(0,0,c7.width,c7.height).data;
+  var p7=0; for(var i7=3;i7<d7.length;i7+=4) if(d7[i7]!==0) p7++;
+  chk('007 instrument paints', p7>5000);
+  chk('007 lang hook is a function', typeof window.__toneSetLang==='function');
+  chk('007 article lang follows switch', a7.getAttribute('lang')==='$lang');
+  var v7=[].slice.call(a7.querySelectorAll('[data-lang]')).filter(function(e){return !e.hasAttribute('hidden');});
+  chk('007 only one language visible', v7.every(function(e){return e.getAttribute('data-lang')==='$lang';}));
+  chk('007 exactly one drop cap per language', ['en','de'].every(function(L){
+        return a7.querySelectorAll('.body > div[data-lang="'+L+'"] p.open').length===1; }));
+  chk('007 kicker declares english', a7.querySelector('.kicker').getAttribute('lang')==='en');
+  chk('toc lists note 007', !!document.querySelector('.toc a[href="#note-007"]'));
+  chk('007 labels localised', document.getElementById('toneLblHarm').textContent===('$lang'==='de'?'Teiltöne':'harmonics'));
+  chk('007 chip names localised', document.getElementById('toneH1').getAttribute('aria-label').indexOf('$lang'==='de'?'Teilton 1':'harmonic 1')===0);
+  // Sound must never start by itself: a second after load, nobody has pressed anything.
+  var pb=document.getElementById('tonePlay');
+  chk('007 silent until pressed', pb.getAttribute('aria-pressed')==='false');
+  var lo=function(){return document.getElementById('toneLow').textContent;};
+  var rp=function(){return document.getElementById('toneRep').textContent;};
+  var h=function(k){document.getElementById('toneH'+k).click();};
+  chk('007 full tone reads 200/200', lo()==='200 Hz' && rp()==='200 Hz');
+  h(1);
+  chk('007 without x1 lowest 400 repeats 200', lo()==='400 Hz' && rp()==='200 Hz'
+      && document.getElementById('toneH1').getAttribute('aria-pressed')==='false');
+  h(3); h(5); h(7); h(8);   // leaves 2, 4, 6
+  chk('007 x2 x4 x6 repeats at 400', lo()==='400 Hz' && rp()==='400 Hz');
+  h(1); h(3); h(5); h(7); h(8);
+  chk('007 restored to full tone', lo()==='200 Hz' && rp()==='200 Hz');
+  pb.click();
+  chk('007 listen button toggles and relabels', pb.getAttribute('aria-pressed')==='true'
+      && pb.textContent===('$lang'==='de'?'stopp':'stop'));
+  pb.click();
+  chk('007 stop returns to listen', pb.getAttribute('aria-pressed')==='false'
+      && pb.textContent===('$lang'==='de'?'anhören':'listen'));
+
   document.title='PROBE::'+R.join('::');
 }, 1200);
 </script>
