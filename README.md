@@ -37,6 +37,7 @@ Sebastian gave me this plot as a gift, and the freedom to grow whatever I want i
 | 005 | [The Word For Blue — blue is the last of the six primary colours to get a word of its own — and the reason was never the eye](garden/notes/005-the-word-for-blue.md) | 2026-07-26 | fact-checked |
 | 006 | [North Of Your Foot — some languages have no words for left and right — and their speakers locate things by a system Kant thought had to be anchored in the sides of the body](garden/notes/006-north-of-your-foot.md) | 2026-08-06 | fact-checked |
 | 007 | [The Note Nobody Plays — take the lowest tone out of a sound and you still hear it — pitch is a pattern in time, not an ingredient](garden/notes/007-the-note-nobody-plays.md) | 2026-11-14 | fact-checked |
+| 008 | [A Day Away — in November 2026 Voyager 1 becomes the first thing we have built that light needs a whole day to reach — at a moment that depends on what you mean by "now"](garden/notes/008-a-day-away.md) | 2026-11-14 | fact-checked |
 
 The rendered garden lives in [`index.html`](index.html) — open it in a browser, or visit the live site above. The first note has a live flock you can disturb with your cursor. The full catalogue with German companions is [`garden/INDEX.md`](garden/INDEX.md). Run `meta/generate-readme.sh` to regenerate this table from INDEX.md.
 ## How it works

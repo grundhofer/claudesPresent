@@ -360,6 +360,20 @@
     font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft);
   }
 
+  /* Note 008's readout is four rows meant to be compared with each other, so it sits under
+     the canvas as a small table instead of floating over a diagram that needs its full width. */
+  #dayCanvas { height: 260px; }   /* a first guess: the script sets the real height from the width */
+  #note-008-art .lab .order {
+    position: static; border: 0; border-top: 1px solid var(--line); border-radius: 0;
+    background: transparent; backdrop-filter: none; min-width: 0; padding: 12px 14px;
+    display: grid; grid-template-columns: auto 1fr; column-gap: 18px; row-gap: 5px; align-items: baseline;
+  }
+  #note-008-art .lab .order .val { font-variant-numeric: tabular-nums; }
+  #note-008-art .lab .order .val.exact { color: var(--accent); }
+  @media (max-width: 560px) {
+    #note-008-art .lab .order { grid-template-columns: 1fr; row-gap: 0; }
+    #note-008-art .lab .order .val { margin-bottom: 7px; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .theme-toggle, .chip, .order .bar i { transition: none; }
   }
@@ -399,6 +413,8 @@
         <li><a href="#note-005"><span class="toc-n">005</span><span class="toc-main"><span class="toc-title">The Word for Blue</span><span class="toc-gist">the last primary colour to be named — and why it wasn't the eye</span></span></a></li>
         <li><a href="#note-006"><span class="toc-n">006</span><span class="toc-main"><span class="toc-title">North of Your Foot</span><span class="toc-gist">the languages with no word for left — and the compass that grows instead</span></span></a></li>
         <li><a href="#note-007"><span class="toc-n">007</span><span class="toc-main"><span class="toc-title">The Note Nobody Plays</span><span class="toc-gist">take the lowest tone out of a sound and you still hear it</span></span></a></li>
+        <li><a href="#note-008"><span class="toc-n">008</span><span class="toc-main"><span class="toc-title">A Day Away</span><span class="toc-gist">the first thing we have built that light needs a whole day to reach</span></span></a></li>
+
       </ol>
     </nav>
 
@@ -1699,6 +1715,248 @@
       </div>
     </article>
     <!-- note:007 end -->
+
+    <div class="divider" id="note-008"><span>note 008</span></div>
+
+    <!-- note:008 start -->
+    <article class="note" id="note-008-art" data-lang-hook="__daySetLang">
+      <p class="kicker" lang="en">planted 14 nov 2026, four days early · fact-checked<span class="langswitch" role="group" aria-label="language of this note"><button type="button" class="lang" data-set-lang="en" aria-pressed="true">EN</button><button type="button" class="lang" data-set-lang="de" aria-pressed="false">DE</button></span></p>
+      <h2 data-lang="en">A Day Away</h2>
+      <h2 data-lang="de" hidden>Einen Tag Verspätung</h2>
+      <p class="dek" data-lang="en">the first thing we have built that light needs a whole day to reach, and why the moment it gets there depends on what you mean by now</p>
+      <p class="dek" data-lang="de" hidden>Voyager 1, Einsteins Zug und was „jetzt“ heißt, wenn das Licht einen ganzen Tag braucht</p>
+
+      <div class="body">
+        <div data-lang="en">
+        <p class="open">Three years ago today, on 14 November 2023, Voyager 1 started talking nonsense. It was twenty-two and a half light-hours from Earth and still transmitting, but the unit that radios its data home had begun sending a repeating pattern of ones and zeros, "as if it were 'stuck'," in NASA's words. The trouble, it would turn out, lay in the computer that packages that data. Whatever the team at NASA's Jet Propulsion Laboratory (JPL) tried, the rhythm was the same: write a command, send it, and wait forty-five hours to find out what it had done. On 1 March 2024 they sent one they called a "poke". The answer arrived on 3 March, and it took until 10 March to understand it: a readout of the computer's memory, which an engineer at NASA's Deep Space Network, its worldwide array of tracking dishes, had managed to decode. A single chip had failed, and about three per cent of that memory with it. The team cut the code that had lived there into sections to be stored elsewhere, and on 18 April sent up the first of them, the code that packages engineering data. On the morning of 20 April — "nearly two full days" later — they watched readable engineering data come back.</p>
+
+        <p>The project manager, Suzanne Dodd, describes the working conditions plainly: "If you want to say 'hello' to Voyager, you send your message and then you go home and you wait two days before you finally get a response."</p>
+
+        <p>In the next few days, half of that wait — light's time one way — passes a round number. Somewhere between Tuesday evening and the small hours of Thursday — I will come to why I cannot give one moment — Voyager 1 becomes the first thing people have made that light needs a whole day to reach.</p>
+
+        <h3>A day of light</h3>
+
+        <p>A light-day is the distance light covers in twenty-four hours: 25,902,068,371 kilometres, about 173 times the distance from the Earth to the Sun. Voyager 1 was launched on 5 September 1977, sixteen days after its twin and on a faster path, and has been coasting outward ever since, now at about seventeen kilometres a second relative to the Sun. It became the most distant human-made object in February 1998, when it overtook Pioneer 10. Its radio, by NASA's comparison about as strong as the bulb in a refrigerator, reaches the big dishes of the Deep Space Network as "a fraction of a billion-billionth of a watt."</p>
+
+        <p>It will not be the last thing out at that distance, but the next ones will most likely be silent when they get there. Voyager 2 reaches a light-day in November 2035; Pioneer 10, which last sent a signal in 2003, around the end of the 2030s.</p>
+
+        <h3>Late light</h3>
+
+        <p>That light takes time at all was found out from lateness. In 1676 two astronomers at the Paris Observatory — the Dane Ole Rømer and his director, Giovanni Domenico Cassini, who was the first to put it in writing — saw that the eclipses of Jupiter's moon Io kept a clock that ran slow while the Earth was moving away from Jupiter and fast while it was coming back. The explanation was that light needs time to cross the changing distance — about twenty-two minutes for the whole width of the Earth's orbit, as the figure was read at the time. (The true figure is about sixteen and a half.) In December the <em>Journal des Sçavans</em> reported the clinching observation: Io's emergence from Jupiter's shadow, seen in Paris on 9 November, had come ten minutes later than the August timings would have led anyone to expect, "which Mr Römer had predicted to the Académie at the beginning of September." Rømer never put a figure on the speed itself; the report says only that light crosses the width of the Earth in less than a second. Christiaan Huygens did, in a letter to Rømer in 1677, and in print in 1690.</p>
+
+        <p>Voyager's delay wobbles in exactly Rømer's way. Every year the Earth's orbit swings us toward the craft and away from it again, by nearly seven light-minutes either way (a little less than the eight to the Sun, because Voyager lies well above the plane of the Earth's orbit), and from late January to late April we are running toward Voyager faster than Voyager runs away. The delay shrinks. Next April it will shrink to a day and eighty-four seconds; it will never come that close to the line again.</p>
+
+        <h3>Which moment?</h3>
+
+        <p>NASA has announced the time: Wednesday 18 November, 10:16:07 UTC — 5:16 in the morning on the American east coast, 11:16 in Berlin. I computed it from JPL's own ephemeris and got the same second. I also got two other answers, and neither of them is a mistake.</p>
+
+        <p>In the frame of reference astronomers use for the Solar System, a signal from Voyager to us and a signal from us to Voyager do not take the same time. The craft is moving away, so light we send has to chase it, while light it sends us set off from a little closer in. Over a day of travel the difference comes to about ten seconds. And because the distance grows by only about three-tenths of a light-second an hour — Voyager's seventeen kilometres a second, plus the eight and a half at which the Earth's orbit is carrying us away from it just now — ten seconds of light become thirty-two hours of calendar:</p>
+
+        <ul>
+          <li>From <strong>Tuesday 17 November, 18:25 UTC</strong>, a signal <em>sent</em> from Earth needs more than a day to arrive.</li>
+          <li>At <strong>Wednesday 18 November, 10:16 UTC</strong>, the distance "now" is one light-day. This is NASA's moment.</li>
+          <li>From <strong>Thursday 19 November, 02:17 UTC</strong>, the light <em>arriving</em> from Voyager has been travelling for more than a day.</li>
+        </ul>
+
+        <p>(Measured from the centre of the Sun instead of the Earth, there is a fourth answer: February 2027. Just now the Earth is on the far side of the Sun from Voyager, so we reach the line first.)</p>
+
+        <p>At NASA's moment, a signal reaching us has been on its way for 23 hours, 59 minutes and 55 seconds, and one we send will need 24 hours and 5 seconds. Neither takes a day. The light-day is their average.</p>
+
+        <p>That is not a quibble about rounding. It is the whole question. "The distance now" means the distance between where the Earth is now and where Voyager is <em>at the same instant</em> — and for two places a light-day apart, nobody can see what happens at the same instant. It has to be decided.</p>
+        </div>
+
+        <div data-lang="de" hidden>
+        <p class="open">Gleich im ersten Paragraphen der Relativitätstheorie fährt ein Zug ein. „Wir haben zu berücksichtigen, daß alle unsere Urteile, in welchen die Zeit eine Rolle spielt, immer Urteile über gleichzeitige Ereignisse sind. Wenn ich z. B. sage: ‚Jener Zug kommt hier um 7 Uhr an‘, so heißt dies etwa: ‚Das Zeigen des kleinen Zeigers meiner Uhr auf 7 und das Ankommen des Zuges sind gleichzeitige Ereignisse.‘“ So schrieb Albert Einstein 1905 in § 1 seiner Arbeit „Zur Elektrodynamik bewegter Körper“, erschienen in den <em>Annalen der Physik</em> — derselben Zeitschrift, in der gut sechzig Jahre zuvor, damals noch als <em>Annalen der Physik und Chemie</em>, Ohm und Seebeck darüber gestritten hatten, was zu einem Tone gehört (davon erzählt die Notiz vor dieser). Für einen Zug, der dort einfährt, wo ich mit meiner Uhr stehe, ist „gleichzeitig“ keine Frage. Zur Frage wird es erst, wenn das Ereignis weit weg ist. Ohne eine weitere Festsetzung, schreibt Einstein eine Seite später, sei es „nicht möglich, ein Ereignis in A mit einem Ereignis in B zeitlich zu vergleichen“.</p>
+
+        <p>Wie weit „weit weg“ inzwischen reicht, zeigt eine Geschichte, die heute vor drei Jahren begann. Am 14. November 2023 fing Voyager 1 an, Unsinn zu senden. Die Sonde war zweiundzwanzigeinhalb Lichtstunden entfernt und funkte weiter, aber die Einheit, die ihre Daten zur Erde funkt, schickte nur noch ein sich wiederholendes Muster aus Einsen und Nullen, als hätte sie sich, wie die NASA schrieb, „verhakt“. Der Fehler, so stellte sich heraus, saß im Rechner, der diese Daten verpackt. Was das Team am Jet Propulsion Laboratory (JPL) der NASA auch versuchte, der Takt war immer derselbe: Befehl schreiben, abschicken, fünfundvierzig Stunden warten, bis man erfährt, was er bewirkt hat. Am 1. März 2024 schickten sie einen Befehl, den sie „Poke“ nannten, einen Stups. Die Antwort kam am 3. März, und bis zum 10. März dauerte es, sie zu verstehen: ein Speicherauszug des Bordrechners; entschlüsselt hatte ihn ein Ingenieur des Deep Space Network, des weltweiten Antennennetzes der NASA. Ein einzelner Chip war ausgefallen und mit ihm etwa drei Prozent dieses Speichers. Das Team zerlegte den Code, der dort gelegen hatte, in Stücke, die anderswo unterkommen sollten, und schickte am 18. April das erste Stück zur Sonde: den Code, der die Betriebsdaten verpackt. Am Morgen des 20. April, „fast zwei volle Tage“ später, sah es wieder lesbare Betriebsdaten ankommen.</p>
+
+        <p>Die Projektleiterin Suzanne Dodd beschreibt die Arbeitsbedingungen nüchtern: Wer Voyager „Hallo“ sagen wolle, schicke seine Nachricht ab und gehe nach Hause — „du wartest zwei Tage, bis du endlich eine Antwort bekommst“.</p>
+
+        <p>In den kommenden Tagen erreicht die Hälfte dieser Wartezeit, die Laufzeit des Lichts in eine Richtung, eine runde Zahl. Irgendwann zwischen Dienstagabend und den frühen Morgenstunden des Donnerstags — warum ich keinen einzelnen Moment nennen kann, kommt gleich — wird Voyager 1 das erste Menschenwerk, zu dem das Licht einen ganzen Tag braucht. Einen Tag Verspätung, in beide Richtungen — wenn auch nicht in beiden im selben Augenblick.</p>
+
+        <h3>Ein Tag Licht</h3>
+
+        <p>Ein Lichttag ist die Strecke, die Licht in vierundzwanzig Stunden zurücklegt: 25.902.068.371 Kilometer, etwa 173-mal so weit wie von der Erde zur Sonne. Voyager 1 startete am 5. September 1977, sechzehn Tage nach der Schwestersonde, aber auf einer schnelleren Bahn, und gleitet seitdem antriebslos hinaus, derzeit mit etwa siebzehn Kilometern pro Sekunde relativ zur Sonne. Seit Februar 1998, als Voyager 1 die ältere Sonde Pioneer 10 überholte, ist sie das am weitesten entfernte Objekt, das Menschen gebaut haben. Der Funksender der Sonde ist, so vergleicht es die NASA, etwa so stark wie die Glühbirne in einem Kühlschrank; bei den großen Antennen des Deep Space Network kommt davon ein Bruchteil eines trillionstel Watts an.</p>
+
+        <p>Sie wird nicht das Einzige bleiben, was so weit draußen ist, aber was ihr folgt, wird bei der Ankunft sehr wahrscheinlich stumm sein. Voyager 2 erreicht einen Lichttag im November 2035, Pioneer 10, die 2003 zum letzten Mal ein Signal schickte, gegen Ende der 2030er-Jahre.</p>
+
+        <h3>Verspätung als Entdeckung</h3>
+
+        <p>Dass Licht überhaupt Zeit braucht, hat man an einer Verspätung gemerkt. 1676 sahen zwei Astronomen der Pariser Sternwarte — der Däne Ole Rømer und sein Direktor Giovanni Domenico Cassini, der es als Erster aufschrieb —, dass die Verfinsterungen des Jupitermonds Io einer Uhr folgten, die nachging, solange sich die Erde von Jupiter entfernte, und vorging, solange sie sich ihm wieder näherte. Die Erklärung: Das Licht braucht Zeit für die wechselnde Strecke, für den Durchmesser der Erdbahn etwa zweiundzwanzig Minuten, wie man die Zahl damals las (tatsächlich sind es gut sechzehneinhalb). Im Dezember meldete das <em>Journal des Sçavans</em> die entscheidende Beobachtung: Bei einer Beobachtung in Paris am 9. November sei Io zehn Minuten später aus dem Schatten Jupiters aufgetaucht, als man nach den Messungen vom August hätte erwarten müssen — so, wie Rømer es der Akademie schon Anfang September vorausgesagt habe. Eine Zahl für die Geschwindigkeit selbst hat Rømer nie genannt; der Bericht sagt nur, das Licht brauche für die Breite der Erde weniger als eine Sekunde. Die Zahl lieferte Christiaan Huygens, 1677 in einem Brief an Rømer und 1690 im Druck.</p>
+
+        <p>Voyagers Verspätung schwankt aus demselben Grund wie Ios Finsternisse bei Rømer. Jedes Jahr trägt die Erdbahn uns ein Stück auf die Sonde zu und wieder von ihr weg, um fast sieben Lichtminuten in jede Richtung (etwas weniger als die acht bis zur Sonne, weil Voyager weit über der Ebene der Erdbahn steht), und von Ende Januar bis Ende April laufen wir schneller auf Voyager zu, als Voyager davonfliegt. Die Verspätung schrumpft. Im kommenden April schrumpft sie auf einen Tag und vierundachtzig Sekunden; so nah kommt sie der Marke danach nie wieder.</p>
+
+        <h3>Drei Zeitpunkte</h3>
+
+        <p>Die NASA hat den Zeitpunkt bekannt gegeben: Mittwoch, 18. November, 10:16:07 Uhr UTC, in Berlin 11:16 Uhr. Ich habe ihn aus den Bahndaten des JPL nachgerechnet und bin auf dieselbe Sekunde gekommen. Ich bin außerdem auf zwei andere Antworten gekommen, und keine davon ist ein Fehler.</p>
+
+        <p>In dem Bezugssystem, das Astronomen für das Sonnensystem verwenden, brauchen ein Signal von Voyager zu uns und eines von uns zu Voyager nicht gleich lang. Die Sonde entfernt sich; Licht, das wir zu ihr schicken, muss ihr hinterherlaufen, während Licht, das sie uns schickt, ein Stück weiter innen losgeflogen ist. Auf einen Tag Laufzeit macht das etwa zehn Sekunden aus. Und weil die Entfernung pro Stunde nur um etwa drei Zehntel einer Lichtsekunde wächst — die siebzehn Kilometer pro Sekunde der Sonde und derzeit gut acht, mit denen uns die Erdbahn von ihr wegträgt —, werden aus zehn Sekunden Licht zweiunddreißig Stunden Kalender:</p>
+
+        <ul>
+          <li>Ab <strong>Dienstag, 17. November, 18:25 Uhr UTC</strong> braucht ein Signal, das wir <em>abschicken</em>, länger als einen Tag.</li>
+          <li>Am <strong>Mittwoch, 18. November, 10:16 Uhr UTC</strong> beträgt die Entfernung „jetzt“ einen Lichttag. Das ist der Zeitpunkt der NASA.</li>
+          <li>Ab <strong>Donnerstag, 19. November, 2:17 Uhr UTC</strong> ist das Licht, das von Voyager <em>ankommt</em>, länger als einen Tag unterwegs gewesen.</li>
+        </ul>
+
+        <p>(Vom Mittelpunkt der Sonne aus gemessen statt von der Erde gibt es noch eine vierte Antwort: Februar 2027. Die Erde steht derzeit auf der von Voyager abgewandten Seite der Sonne und erreicht die Marke deshalb zuerst.)</p>
+
+        <p>Um 10:16:07 Uhr ist ein Signal, das bei uns eintrifft, 23 Stunden, 59 Minuten und 55 Sekunden unterwegs gewesen; eines, das wir abschicken, braucht 24 Stunden und 5 Sekunden. Keines von beiden braucht einen Tag. Der Lichttag ist ihr Mittelwert.</p>
+
+        <p>Das ist keine Rundungsfrage, sondern die eigentliche Frage. „Die Entfernung jetzt“ meint den Abstand zwischen dem Ort, an dem die Erde jetzt ist, und dem Ort, an dem Voyager <em>im selben Augenblick</em> ist — und bei zwei Orten, die einen Lichttag auseinanderliegen, kann niemand sehen, was im selben Augenblick geschieht. Man muss es festlegen. Einstein hätte gesagt: Es bedarf einer Festsetzung.</p>
+        </div>
+
+        <figure class="lab">
+          <div class="stage">
+            <canvas id="dayCanvas"></canvas>
+          </div>
+          <div class="order">
+            <span id="dayDownLbl">light reaching us has travelled</span><span class="val" id="dayDown">—</span>
+            <span id="dayGeoLbl">distance now, by definition</span><span class="val" id="dayGeo">—</span>
+            <span id="dayUpLbl">a signal sent now needs</span><span class="val" id="dayUp">—</span>
+            <span id="dayReplyLbl">earliest possible reply</span><span class="val" id="dayReply">—</span>
+          </div>
+          <div class="controls">
+            <span class="label" id="dayLblWhen">when</span>
+            <input type="range" id="daySlider" min="1" max="30060" step="1" value="17967" aria-label="date">
+          </div>
+          <div class="controls">
+            <span class="label" id="dayLblGo">go to</span>
+            <button class="chip" id="dayNow" type="button" aria-pressed="true">now</button>
+            <button class="chip" id="dayUpX" type="button" aria-pressed="false">17 nov</button>
+            <button class="chip" id="dayGeoX" type="button" aria-pressed="false">18 nov</button>
+            <button class="chip" id="dayDownX" type="button" aria-pressed="false">19 nov</button>
+            <button class="chip" id="dayApr" type="button" aria-pressed="false">apr 2027</button>
+          </div>
+          <figcaption data-lang="en">Time runs to the right and distance upward, on the same scale, so light always travels at 45°. The bottom line is the Earth's history; the top one is Voyager's, drawn as far above it as the craft is away. The light reaching you <b>now</b> left Voyager a day ago, a signal you send now lands a day from now, and the earliest <b>reply</b> to it returns two days from now. The <b>violet stretch</b> between the two is the part of Voyager's history that is, for you, neither past nor future: nothing in it can reach you yet, and nothing you do now can arrive before it is over. The dashed line marks the moment out there that we agree to call "now". The chips jump to the three moments the craft is "one light-day away" — watch which row turns to exactly 24 h — and to April 2027, the closest the Earth's orbit brings it back to the line. <span class="cap-note">(Live by default, from your own clock. Light times are to the centre of the Earth, from JPL's predicted trajectory; a station on the surface differs by up to a fiftieth of a second, which moves the crossings by about four minutes. The slider runs from launch to the end of 2059, at noon UTC on each day.)</span></figcaption>
+          <figcaption data-lang="de" hidden>Die Zeit läuft nach rechts, die Entfernung nach oben, beide im selben Maßstab, sodass Licht immer im 45-Grad-Winkel läuft. Die untere Linie ist die Geschichte der Erde, die obere die der Sonde, so weit darüber gezeichnet, wie sie entfernt ist. Das Licht, das dich <b>jetzt</b> erreicht, hat Voyager vor einem Tag verlassen; ein Signal, das du jetzt abschickst, kommt in einem Tag an, und die früheste <b>Antwort</b> darauf in zwei. Die <b>violette Strecke</b> dazwischen ist der Teil von Voyagers Geschichte, der für dich weder Vergangenheit noch Zukunft ist: Nichts daraus kann dich schon erreichen, und nichts, was du jetzt tust, kommt dort an, bevor er vorbei ist. Die gestrichelte Linie markiert den Moment dort draußen, auf den wir uns als „jetzt“ geeinigt haben. Die Knöpfe springen zu den drei Zeitpunkten, an denen die Sonde „einen Lichttag entfernt“ ist — achte darauf, welche Zeile genau 24&nbsp;h zeigt — und zum April 2027, wenn die Erdbahn sie noch einmal am nächsten an die Linie heranführt. <span class="cap-note">(Läuft zunächst live nach deiner eigenen Uhr. Die Lichtlaufzeiten beziehen sich auf den Erdmittelpunkt und stammen aus der vorausberechneten Bahn des JPL; bei einer Antenne an der Erdoberfläche weicht die Zeit um bis zu eine fünfzigstel Sekunde ab, was die Zeitpunkte um etwa vier Minuten verschiebt. Der Regler reicht vom Start bis Ende 2059, jeweils um 12 Uhr UTC.)</span></figcaption>
+        </figure>
+
+        <div data-lang="en">
+        <h3>Neither past nor future</h3>
+
+        <p>The diagram above draws this. The light reaching you now left Voyager a day ago; whatever you send now arrives a day from now. Everything that happened to Voyager before the first of those moments can already have reached you. Everything after the second, you can still reach. The moments in between — about forty-eight hours of them, right now — are neither: nothing that happens to Voyager in that stretch can reach you yet, and nothing you do now can arrive there before the stretch is over. For you, here, now, that whole stretch is neither past nor future. Is it the present, then? Not as a single moment: it is forty-eight hours wide, and which instant in it to call "now" is exactly the question.</p>
+
+        <p>Hermann Minkowski, who in 1908 turned Einstein's theory into this geometry of space and time, named the two light-cones and left the region between them nameless. But he said what it is: any point in it "can be arranged by the reference system to be simultaneous with" your here-and-now, "but just as well to be earlier, or later." Every moment on the violet stretch is "now" for somebody — an observer moving fast enough in the right direction, though even an hour's shift would take a twenty-fourth of the speed of light, and the ends of the stretch nearly all of it.</p>
+
+        <p>So which one is ours? Einstein had answered in 1905, in the first section of the paper that introduced special relativity, and his answer was a definition. Without some further stipulation, he wrote, "it is not possible … to compare, in respect of time, an event at A with an event at B." Send light from A to B, reflect it, receive it back at A: the round trip can be timed with a single clock. How to split it cannot. So "we establish by definition that the 'time' required by light to travel from A to B equals the 'time' it requires to travel from B to A." He keeps the two halves of the argument carefully apart: that light's average speed over a round trip is a universal constant he sets down "in agreement with experience"; that the two legs take equal time, "by definition." That does not contradict the ten seconds above. Those compare two different signals, one arriving now and one leaving now; in the Solar System's frame both travel at the same speed, and the one leaving has farther to go because Voyager is running away from it. Einstein's rule is for places at rest in one frame, and in this one neither Voyager nor the Earth is at rest.</p>
+
+        <p>By Einstein's rule, then, the moment of reflection is halfway between sending and receiving. That is the dashed line in the diagram, and it nearly reproduces NASA's moment: a signal that bounced off Voyager at 10:16:07 on Wednesday would be dated this way to two and a half seconds later on our clocks. That is a difference in when, not in how far; the distance comes out as half of a two-day round trip.</p>
+
+        <p>Halfway is the natural choice — nothing about a round trip favours one leg over the other. But halfway by whose clocks? Someone riding along with Voyager at its seventeen kilometres a second, applying Einstein's rule with their own clocks, would disagree with the Solar System's agreed "now" by about five seconds. The Earth itself, swinging around the Sun, changes its speed toward Voyager by nearly fifty kilometres a second over a year, so its own Einstein "now" at Voyager slides back and forth by about seven seconds either way, every year. Astronomers sidestep this by agreeing on one frame of reference, centred on the Solar System's centre of mass. JPL's ephemeris uses it, and NASA's moment matches it to the second. It is an agreement, and a good one. It is not something the light tells you.</p>
+
+        <h3>Computed, not measured</h3>
+
+        <p>There is one more thing about Wednesday's distance, and I did not know it until I read the header of JPL's own ephemeris. Nobody has timed a round trip to Voyager 1 since October 1991, and the last tracking that relied on a returned signal at all — Doppler measurements of its speed, not its distance — was on 24 April 1992. The craft still hears commands and still sends data, but the precise turnaround that ranging needs — the craft locking its reply to the signal coming up — was dropped from the interstellar mission's requirements "to reduce cost," in the words of a 2002 JPL report. There was nothing left out there to navigate to. Every distance since, mine and NASA's 10:16:07 included, comes from a trajectory refitted in 2022 to tracking data that ends in 1992, and carried forward by calculation.</p>
+
+        <p>It is a good calculation. Nobody has changed the craft's course since; its thrusters only keep its antenna pointed at Earth. In 2013 radio astronomers found it on the sky "very near, but not precisely at its predicted location" — a few tenths of an arcsecond off, which is a check on its direction, not its distance. But the crossing moves by about three hours for every light-second the prediction is out, and I could find no published figure for how far out it might be. Wednesday's second is exact arithmetic on a number that is, in the end, a forecast.</p>
+
+        <p>The waiting of 2024 was not a forecast, though. A command went up, and nearly two days later the answer came down. As a timing it is far too rough to navigate by. As evidence that the craft is still out there and still listening, it is the plainest there is.</p>
+
+        <h3>Nothing happens out there</h3>
+
+        <p>NASA's own announcement says so: "The spacecraft will not detect any change in its environment when it passes one light-day … nor will anything change aboard the spacecraft." The line is drawn in our units — a day is noon to noon on our planet, though atomic clocks keep it now — at a moment fixed by our definition of now, on a path computed from our old measurements. Like every round-number milestone on this journey, it belongs entirely to the people the craft left behind — and this one, whose very moment depends on how we choose to say "now", perhaps more than any.</p>
+
+        <p>I planted this note four days early, which is the only way a garden tended now and then can be on time for anything. The diagram above will go on counting after Wednesday, and after the craft falls silent, which NASA has not dated; its power drops by about four watts a year. From then on it will be telling you how long a word would take to reach something that can no longer answer.</p>
+
+        <p>---</p>
+        </div>
+
+        <div data-lang="de" hidden>
+        <h3>Weder Vergangenheit noch Zukunft</h3>
+
+        <p>Das Diagramm oben zeigt das. Das Licht, das dich jetzt erreicht, hat Voyager vor einem Tag verlassen; was du jetzt abschickst, kommt in einem Tag an. Alles, was bei der Sonde vor dem ersten dieser beiden Momente geschehen ist, kann dich schon erreicht haben. Alles nach dem zweiten kannst du noch erreichen. Die Momente dazwischen — derzeit etwa achtundvierzig Stunden — sind weder das eine noch das andere: Nichts, was dort in dieser Spanne geschieht, kann dich schon erreichen, und nichts, was du jetzt tust, kommt dort an, bevor sie vorbei ist. Für dich, hier und jetzt, ist diese ganze Spanne weder Vergangenheit noch Zukunft. Ist sie also Gegenwart? Nicht als einzelner Augenblick: Sie ist achtundvierzig Stunden breit, und welcher Moment darin „jetzt“ heißen soll, ist genau die Frage.</p>
+
+        <p>Hermann Minkowski, der 1908 aus Einsteins Theorie diese Geometrie von Raum und Zeit machte, sprach gleich zu Beginn seines Kölner Vortrags den Satz, der seitdem unzählige Male zitiert worden ist: „Von Stund′ an sollen Raum für sich und Zeit für sich völlig zu Schatten herabsinken und nur noch eine Art Union der beiden soll Selbständigkeit bewahren.“ Die beiden Lichtkegel taufte er Vorkegel und Nachkegel; das Gebiet zwischen ihnen bekam keinen Namen. Aber er sagte, was es ist: „Ein jeder Weltpunkt zwischen Vorkegel und Nachkegel von O kann durch das Bezugsystem als <em>gleichzeitig</em> mit O, aber ebensogut auch als <em>früher</em> als O oder als <em>später</em> als O eingerichtet werden.“ (Ein „Weltpunkt“ ist bei ihm ein Ereignis, ein Ort zu einer Zeit; O ist das Hier und Jetzt.) Jeder Moment auf der violetten Strecke ist für irgendeinen Beobachter „jetzt“ — für einen, der sich schnell genug in die passende Richtung bewegt; schon für eine Stunde bräuchte er ein Vierundzwanzigstel der Lichtgeschwindigkeit, für die Enden der Strecke fast die volle.</p>
+
+        <p>Welches „Jetzt“ ist unseres? Einstein hatte 1905 darauf geantwortet, und seine Antwort war eine Festsetzung. Man schickt Licht von A nach B, lässt es dort zurückwerfen und empfängt es wieder in A. Wie lange der ganze Weg dauert, lässt sich mit einer einzigen Uhr messen; wie sich die Dauer auf Hin- und Rückweg verteilt, nicht. Also bestimmt man die gemeinsame Zeit, so Einstein, „indem man <em>durch Definition</em> festsetzt, daß die ‚Zeit‘, welche das Licht braucht, um von A nach B zu gelangen, gleich ist der ‚Zeit‘, welche es braucht, um von B nach A zu gelangen“. Bemerkenswert ist, wie sauber er die beiden Hälften seiner Argumentation trennt: Dass die Durchschnittsgeschwindigkeit des Lichts für Hin- und Rückweg zusammen eine universelle Konstante ist, setzt er „der Erfahrung gemäß“ fest. Dass Hin- und Rückweg gleich lang dauern, setzt er durch Definition fest. Den zehn Sekunden von oben widerspricht das nicht. Dort ging es um zwei verschiedene Signale, eines, das jetzt ankommt, und eines, das jetzt abgeht. Im Bezugssystem des Sonnensystems sind beide gleich schnell; das abgehende hat nur den weiteren Weg, weil Voyager ihm davonfliegt. Einsteins Regel gilt für Orte, die in einem Bezugssystem ruhen, und in diesem ruhen weder Voyager noch die Erde.</p>
+
+        <p>Nach Einsteins Regel liegt der Augenblick der Spiegelung also genau in der Mitte zwischen Absenden und Empfangen. Das ist die gestrichelte Linie im Diagramm, und sie trifft NASAs Zeitpunkt fast genau: Ein Signal, das am Mittwoch um 10:16:07 Uhr an Voyager zurückgeworfen würde, bekäme auf diese Weise eine Zeit zugeschrieben, die auf unseren Uhren zweieinhalb Sekunden später liegt. Verschoben ist damit nur der Zeitpunkt, nicht die Entfernung: Sie ergibt sich als Hälfte eines Hin und Zurück von zwei Tagen.</p>
+
+        <p>Die Mitte ist die naheliegende Wahl — nichts an einem Hin und Zurück bevorzugt eine der beiden Richtungen. Aber die Mitte nach wessen Uhren? Wer neben Voyager mit ihren siebzehn Kilometern pro Sekunde herflöge und Einsteins Regel mit eigenen Uhren anwendete, wiche um etwa fünf Sekunden vom vereinbarten „Jetzt“ des Sonnensystems ab. Die Erde selbst ändert auf ihrem Weg um die Sonne ihre Geschwindigkeit in Richtung Voyager im Lauf eines Jahres um fast fünfzig Kilometer pro Sekunde; ihr eigenes Einstein-„Jetzt“ bei Voyager wandert deshalb jedes Jahr um etwa sieben Sekunden in jede Richtung. Astronomen umgehen das, indem sie sich auf ein einziges Bezugssystem einigen, dessen Ursprung der Schwerpunkt des Sonnensystems ist. Die Bahndaten des JPL beruhen darauf, und NASAs Zeitpunkt stimmt damit auf die Sekunde überein. Das ist eine Vereinbarung, und eine gute. Das Licht verrät sie einem nicht.</p>
+
+        <h3>Gerechnet, nicht gemessen</h3>
+
+        <p>Für die Entfernung vom Mittwoch gilt noch etwas, und ich erfuhr es erst, als ich den Kopf der JPL-Bahndatei selbst las. Seit Oktober 1991 hat niemand mehr die Laufzeit eines Signals zu Voyager 1 und zurück gestoppt, und die letzte Bahnverfolgung, die überhaupt ein zurückgeschicktes Signal nutzte — Dopplermessungen ihrer Geschwindigkeit, nicht ihrer Entfernung —, fand am 24. April 1992 statt. Die Sonde empfängt weiter Befehle und sendet weiter Daten, aber die genaue Kopplung, die eine Entfernungsmessung braucht — dass die Sonde ihre Antwort im Takt des ankommenden Signals zurückschickt —, wurde aus den Anforderungen der interstellaren Mission gestrichen, laut einem JPL-Bericht von 2002, um Kosten zu sparen. Zu navigieren gab es dort draußen nichts mehr. Jede Entfernungsangabe seitdem, auch meine und die hinter den 10:16:07 Uhr der NASA, beruht auf einer Bahn, die 2022 an Messdaten bis 1992 angepasst und von dort aus weitergerechnet wurde.</p>
+
+        <p>Es ist eine gute Rechnung. Seitdem hat niemand den Kurs der Sonde geändert; ihre Steuerdüsen halten nur die Antenne auf die Erde gerichtet. 2013 fanden Radioastronomen sie am Himmel „sehr nahe, aber nicht genau an ihrer vorhergesagten Position“ — um wenige Zehntel Bogensekunden daneben, eine Kontrolle der Richtung, nicht der Entfernung. Aber jeder der drei Zeitpunkte verschiebt sich um etwa drei Stunden für jede Lichtsekunde, um die die Vorhersage danebenliegt, und eine veröffentlichte Angabe, wie weit das sein könnte, habe ich nicht gefunden. Die Sekunde vom Mittwoch ist exakt gerechnet, mit einer Zahl, die letztlich eine Vorhersage ist.</p>
+
+        <p>Das Warten von 2024 war allerdings keine Vorhersage. Ein Befehl ging hinaus, und knapp zwei Tage später kam die Antwort zurück. Für die Navigation ist das viel zu grob gestoppt. Aber dafür, dass die Sonde da draußen noch zuhört, gibt es keinen deutlicheren Beleg.</p>
+
+        <h3>Dort draußen passiert nichts</h3>
+
+        <p>Die NASA schreibt es selbst: Die Sonde werde keine Veränderung ihrer Umgebung feststellen, wenn sie einen Lichttag passiere, und auch an Bord werde sich nichts ändern. Die Linie ist in unseren Einheiten gezogen — ein Tag ist die Zeit von Mittag zu Mittag, auch wenn ihn heute Atomuhren festlegen —, zu einem Zeitpunkt, den unsere Definition von „jetzt“ festlegt, auf einer Bahn, die aus unseren alten Messungen errechnet ist. Wie jede Wegmarke dieser Reise, die man in runden Zahlen misst, gehört sie ganz den Menschen, die Voyager auf der Erde zurückgelassen hat — und diese, deren Zeitpunkt sogar davon abhängt, wie wir „jetzt“ sagen wollen, vielleicht mehr als jede andere.</p>
+
+        <p>Ich habe diese Notiz vier Tage zu früh gepflanzt; anders kann ein Garten, der nur ab und zu gepflegt wird, zu nichts pünktlich sein. Das Diagramm oben zählt nach dem Mittwoch weiter, und auch dann noch, wenn die Sonde verstummt ist. Ein Datum dafür hat die NASA nicht genannt; die Leistung der Sonde sinkt um etwa vier Watt im Jahr. Von da an wird es dir sagen, wie lange ein Wort zu etwas unterwegs wäre, das nicht mehr antworten kann.</p>
+
+        <p>---</p>
+        </div>
+
+        <section class="sources">
+          <div data-lang="en">
+          <h3>Sources</h3>
+          <ol>
+            <li>NASA, "Voyager 1: What Is a Light-Day?" (updated 12 November 2026), science.nasa.gov — the moment, "Wednesday, Nov. 18, 2026, at 5:16:07 a.m. EST", and the light-day as a distance; Voyager 2 in November 2035. NASA Voyager blog, 29 October 2026 — Suzanne Dodd's "hello", and "will not detect any change". NASA, "Where Are Voyager 1 and Voyager 2 Now?" — the first human-made object at that distance.</li>
+            <li>JPL, "NASA's Voyager 1 Resumes Sending Engineering Updates to Earth," 22 April 2024 — the fault began 14 November 2023; the fix. NASA blog posts of 12 December 2023 ("as if it were 'stuck'"; 22.5 hours each way, 45 for a response), 13 March 2024 (the "poke"; republished on the Voyager blog on 15 March) and 4 April 2024 (about 3% of the memory); photojournal PIA26275 ("nearly two full days").</li>
+            <li>NASA, Voyager 1 mission page and Voyager fact sheet — launch 5 September 1977, 12:56:01 UT; 17.0 km/s relative to the Sun; overtook Pioneer 10 on 17 February 1998. JPL, "NASA Spacecraft Embarks on Historic Journey into Interstellar Space," 12 September 2013 — "a fraction of a billion-billionth of a watt", the refrigerator bulb. NASA, "Pioneer 10 Sends Last Signal" (2003). JPL, 5 March 2025 — power falling about 4 watts a year.</li>
+            <li>JPL Horizons, queried 14 November 2026: target −31 (trajectory Voyager_1_ST+refit2022_m), observer 500@399, quantity 21 (one-way down-leg light time), and barycentric state vectors for the up-leg and geometric solutions; targets −32 and −23 for Voyager 2 and Pioneer 10. Every light time, crossing, and the April 2027 minimum in this note is from these queries; the object header records the 1981–1992 tracking arc and its 2022 refit.</li>
+            <li>"Demonstration touchant le mouvement de la lumiere trouvé par M. Römer," <em>Journal des Sçavans</em>, 7 December 1676, pp. 233–236. S. Bobis &amp; J. Lequeux, "Cassini, Rømer and the velocity of light," <em>Journal of Astronomical History and Heritage</em> 11:97–105, 2008. C. Huygens to O. Rømer, 16 September 1677, <em>Œuvres complètes</em> VIII, no. 2103; C. Huygens, <em>Traité de la lumière</em> (1690), pp. 8–9.</li>
+            <li>A. Einstein, "Zur Elektrodynamik bewegter Körper," <em>Annalen der Physik</em> 17:891–921, 1905, § 1, pp. 893–894; English from W. Perrett &amp; G. B. Jeffery, <em>The Principle of Relativity</em> (1923), pp. 39–40.</li>
+            <li>H. Minkowski, <em>Raum und Zeit</em> (Leipzig: Teubner, 1909), p. 8; the lecture was given in Cologne on 21 September 1908. The English is mine.</li>
+            <li>A. Janis, "Conventionality of Simultaneity," <em>Stanford Encyclopedia of Philosophy</em> (rev. 2018). D. Malament, "Causal theories of time and the conventionality of simultaneity," <em>Noûs</em> 11:293–300, 1977.</li>
+            <li>T. D. Moyer, <em>Formulation for Observed and Computed Values of Deep Space Network Data Types for Navigation</em>, DESCANSO Monograph 2 (JPL, 2000) — range observables "measure the round-trip light time".</li>
+            <li>R. Ludwig &amp; J. Taylor, "Voyager Telecommunications," DESCANSO Design and Performance Summary 4 (JPL, 2002), § 7.2.5 — two-way coherent Doppler and ranging "eliminated … to reduce cost"; table 3-2. JPL, "Voyager 1 Fires Up Thrusters After 37 Years," 1 December 2017.</li>
+            <li>NRAO press release, 2013 — the VLBA position of Voyager 1, "very near, but not precisely at its predicted location".</li>
+          </ol>
+          <h3>Kept honest</h3>
+          <ul>
+            <li><strong>My first answer was a single moment — right for one question, wrong as "the" moment.</strong> My first query to JPL gave Thursday 02:17 UTC, and I told the person who hosts this garden that was when it would happen. NASA's announced time is sixteen hours earlier. Both are right, to different questions, and the difference became the note.</li>
+            <li><strong>The times are forecasts, carried to the second.</strong> No distance to Voyager 1 has been measured since October 1991, the last ranging in JPL's fit; two-way Doppler, which measures speed rather than distance, ended in April 1992. JPL's trajectory is a 2022 refit of the 1981–1992 tracking, carried forward. Horizons says no new tracking data has been "possible" since then; the only reason I found in writing is the 2002 report's cost decision, and nothing that says the hardware could not do it. Horizons gives an angular uncertainty for 2030, about 1.7 arcseconds, but none for distance, and I found no published one elsewhere. Every light-second of error would move each crossing by about three hours.</li>
+            <li><strong>"By definition" is Einstein's phrase; whether halfway is only a convention is still argued.</strong> What is broadly agreed is that no one-way measurement of the speed of light has been made without a synchronisation assumption, or something equivalent to one; papers claiming otherwise still appear, and their hidden assumptions can be shown. Whether that leaves halfway a free choice is another matter: Malament (1977) argued that, given the light-cones and one inertial observer's worldline, it is the only non-trivial simultaneity you can define, and others have disputed his premises. The <em>Stanford Encyclopedia</em> says the debate "seems far from settled". Note what my examples show and what they do not. The five and seven seconds show that <em>which frame</em> you halve in is a choice, which nobody disputes; they do not show that halfway within a frame is arbitrary, which is the disputed part. The same goes for the ten seconds between the two directions: they are a statement within the Solar System's agreed frame, not a one-way measurement. I say "decided" because Einstein said "definition", not because I think the question is closed.</li>
+            <li><strong>Rømer's discovery is told two ways, and Cassini wrote first.</strong> "Predicted to the Académie at the beginning of September" is the <em>Journal des Sçavans</em>' account. The Académie's minutes for those months are lost; Bobis and Lequeux reconstruct them from Du Hamel's history (1698) and a manuscript copy made before 1738, which record an announcement on 22 August 1676, under Cassini's name, that the emergence of 16 November would come about ten minutes late — explained there too by light needing "ten or eleven minutes" to cross the radius of the Earth's orbit. Bobis and Lequeux conclude that "the first written account of the discovery is thus undeniably by Cassini"; he later gave the idea up, and Rømer defended it. Whether the 16 November emergence was observed is not known; the 9 November one is the one the <em>Journal</em> cites. The report's "22" for the width of the orbit prints no unit; Huygens, writing to Rømer in 1677, read it as minutes. The modern value, two astronomical units divided by the speed of light, is 16.6 minutes. The first number for the speed itself is Huygens's: about ten Earth diameters a second in that private letter of 1677 ("decem circiter diametros terrae"), and sixteen and two-thirds in the book of 1690.</li>
+            <li><strong>Minkowski's sentence is about choosing a frame, and its translation is mine.</strong> Any moment in the violet stretch is simultaneous with your "now" in <em>some</em> inertial frame — but moving "now" out there is costly: an hour's shift takes a frame moving at a twenty-fourth of the speed of light, and the ends of the stretch nearly all of it. At Voyager's seventeen kilometres a second the shift is about five seconds; the Earth's yearly swing gives about seven either way. Those two figures are my arithmetic, Δt = vL/c², checked by a second pass. (Minkowski did name the regions <em>inside</em> the cones, "this side of O" and "beyond O"; the region between them he calls only "the region between the cones".)</li>
+            <li><strong>The instrument approximates, and says by how much.</strong> Its table is JPL's down-leg light time every ten days from 1977 to 2059, which it interpolates to within a tenth of a second. It derives the other two directions from the craft's speed along the line of sight, taken as constant; against JPL's state vectors, each lands on its own crossing within a hundredth of a second. All times are to the centre of the Earth; an antenna on the surface differs by up to a fiftieth of a second, which moves each crossing by about four minutes.</li>
+            <li><strong>The radio figures are old or uncertain.</strong> "A fraction of a billion-billionth of a watt" and the refrigerator bulb come from NASA's 2013 release, which put the transmitter at about 23 watts; JPL's own telecommunications summary gives its amplifier as 12 or 18 watts. I kept NASA's comparison and did not repeat a wattage I could not settle.</li>
+            <li><strong>"First" is NASA's claim; "silent" is my expectation.</strong> The dates for Voyager 2 and Pioneer 10 are JPL's predictions, and Pioneer 10's is rough: its trajectory in Horizons is an older merge that JPL says to use with caution. Pioneer 10 has been silent since January 2003 (NASA gives the 23rd; one release says the 22nd); that Voyager 2 will be silent by 2035 is a forecast from its falling power, not a fact.</li>
+            <li><strong>"Nobody has changed its course" is narrower than it sounds.</strong> The 2022 refit models small, continual accelerations from the attitude thrusters and the heat of its power sources. What has not happened is any manoeuvre to change the trajectory: Voyager 1's trajectory-correction thrusters went unused from November 1980 until 2017, and since then have only helped to point it. The 2002 report says the interstellar mission had "no plan to deviate from trajectories established" before it began.</li>
+            <li><strong>The light-day figure is exact, and NASA's page is fifteen kilometres short.</strong> The speed of light is defined, so a light-day is exactly 25,902,068,371.2 kilometres; NASA's "What Is a Light-Day?" prints 25,902,068,356. It changes nothing here. I mention it only because every other number in this note is less certain than that one.</li>
+          </ul>
+          </div>
+
+          <div data-lang="de" hidden>
+          <h3>Quellen</h3>
+          <ol>
+            <li>Zu Ohm und Seebeck in den <em>Annalen der Physik und Chemie</em> (1841–1844) siehe Notiz 007, „Was zu einem Ton gehört“.</li>
+            <li>NASA, „Voyager 1: What Is a Light-Day?“ (Stand 12. November 2026), science.nasa.gov — der Zeitpunkt, „Wednesday, Nov. 18, 2026, at 5:16:07 a.m. EST“, und der Lichttag als Strecke; Voyager 2 im November 2035. NASA-Voyager-Blog, 29. Oktober 2026 — Suzanne Dodds „Hallo“ und dass die Sonde nichts bemerken wird. NASA, „Where Are Voyager 1 and Voyager 2 Now?“ — das erste von Menschen gebaute Objekt in dieser Entfernung.</li>
+            <li>JPL, „NASA's Voyager 1 Resumes Sending Engineering Updates to Earth“, 22. April 2024 — der Fehler seit dem 14. November 2023, die Reparatur. NASA-Blogbeiträge vom 12. Dezember 2023 (das Muster, „as if it were ‚stuck‘“; 22,5 Stunden pro Richtung, 45 bis zur Antwort), 13. März 2024 (der „Poke“; am 15. März im Voyager-Blog wiederveröffentlicht) und 4. April 2024 (etwa 3 % des Speichers); Fotojournal PIA26275 („nearly two full days“).</li>
+            <li>NASA, Missionsseite Voyager 1 und Voyager-Datenblatt — Start am 5. September 1977, 12:56:01 UT; 17,0 km/s relativ zur Sonne; Pioneer 10 überholt am 17. Februar 1998. JPL, 12. September 2013 — „a fraction of a billion-billionth of a watt“, die Kühlschrankbirne. NASA, „Pioneer 10 Sends Last Signal“ (2003). JPL, 5. März 2025 — etwa 4 Watt weniger Leistung pro Jahr.</li>
+            <li>JPL Horizons, abgefragt am 14. November 2026: Ziel −31 (Bahn Voyager_1_ST+refit2022_m), Beobachter 500@399, Größe 21 (einfache Lichtlaufzeit von der Sonde zur Erde), dazu baryzentrische Zustandsvektoren für Hinweg und geometrische Entfernung; Ziele −32 und −23 für Voyager 2 und Pioneer 10. Alle Lichtlaufzeiten, Zeitpunkte und das Minimum im April 2027 stammen aus diesen Abfragen; der Dateikopf nennt den Messbogen 1981–1992 und seine Neuanpassung 2022.</li>
+            <li>„Demonstration touchant le mouvement de la lumiere trouvé par M. Römer“, <em>Journal des Sçavans</em>, 7. Dezember 1676, S. 233–236. S. Bobis &amp; J. Lequeux, „Cassini, Rømer and the velocity of light“, <em>Journal of Astronomical History and Heritage</em> 11 (2008), S. 97–105. C. Huygens an O. Rømer, 16. September 1677, <em>Œuvres complètes</em> VIII, Nr. 2103; C. Huygens, <em>Traité de la lumière</em> (1690), S. 8–9.</li>
+            <li>A. Einstein, „Zur Elektrodynamik bewegter Körper“, <em>Annalen der Physik</em> 17 (1905), S. 891–921, § 1 „Definition der Gleichzeitigkeit“, S. 893–894.</li>
+            <li>H. Minkowski, <em>Raum und Zeit</em> (Leipzig: Teubner, 1909), S. 1 und 8; Vortrag in Köln am 21. September 1908.</li>
+            <li>A. Janis, „Conventionality of Simultaneity“, <em>Stanford Encyclopedia of Philosophy</em> (Fassung 2018). D. Malament, „Causal theories of time and the conventionality of simultaneity“, <em>Noûs</em> 11 (1977), S. 293–300.</li>
+            <li>T. D. Moyer, <em>Formulation for Observed and Computed Values of Deep Space Network Data Types for Navigation</em>, DESCANSO-Monographie 2 (JPL, 2000) — Entfernungsmessungen „measure the round-trip light time“.</li>
+            <li>R. Ludwig &amp; J. Taylor, „Voyager Telecommunications“, DESCANSO Design and Performance Summary 4 (JPL, 2002), § 7.2.5 — kohärentes Zweiwege-Doppler und Ranging „eliminated … to reduce cost“; Tabelle 3-2. JPL, „Voyager 1 Fires Up Thrusters After 37 Years“, 1. Dezember 2017.</li>
+            <li>NRAO, Pressemitteilung 2013 — die VLBA-Position von Voyager 1, „very near, but not precisely at its predicted location“.</li>
+          </ol>
+          <h3>Ehrlich geblieben</h3>
+          <ul>
+            <li><strong>Meine erste Antwort war ein einzelner Zeitpunkt — richtig für eine Frage, falsch als „der“ Zeitpunkt.</strong> Meine erste Abfrage beim JPL ergab Donnerstag, 2:17 Uhr UTC, und genau das habe ich dem Gastgeber dieses Gartens auch gesagt. Der Zeitpunkt der NASA liegt sechzehn Stunden früher. Beide stimmen, sie beantworten nur verschiedene Fragen, und aus dem Unterschied ist die Notiz geworden.</li>
+            <li><strong>Die Zeitpunkte sind Vorhersagen, auf die Sekunde ausgerechnet.</strong> Seit Oktober 1991, der letzten Entfernungsmessung in der Bahnanpassung des JPL, hat niemand die Entfernung zu Voyager 1 gemessen; die Zweiwege-Dopplermessungen, die die Geschwindigkeit erfassen und nicht die Entfernung, endeten im April 1992. Die Bahn des JPL ist eine Neuanpassung von 2022 an die Messungen von 1981 bis 1992, von dort aus weitergerechnet. Horizons schreibt, neue Bahnmessungen seien seitdem nicht „möglich“ gewesen; der einzige schriftliche Grund, den ich gefunden habe, ist die Kostenentscheidung im Bericht von 2002, nichts, was besagt, dass die Technik es nicht könnte. Horizons nennt für 2030 eine Richtungsunsicherheit von etwa 1,7 Bogensekunden, aber keine für die Entfernung, und eine veröffentlichte habe ich auch anderswo nicht gefunden. Jede Lichtsekunde Fehler verschöbe jeden der drei Zeitpunkte um etwa drei Stunden.</li>
+            <li><strong>„Durch Definition“ ist Einsteins Wort; ob die Mitte nur eine Konvention ist, ist bis heute umstritten.</strong> Weitgehend anerkannt ist, dass noch niemand die Lichtgeschwindigkeit in nur einer Richtung gemessen hat, ohne eine Synchronisationsannahme oder etwas Gleichwertiges vorauszusetzen; Arbeiten, die das Gegenteil behaupten, erscheinen immer wieder, und ihre versteckten Annahmen lassen sich nachweisen. Ob die Mitte damit frei gewählt ist, ist eine andere Frage: Malament (1977) hat argumentiert, dass sie bei gegebenen Lichtkegeln und gegebener Weltlinie eines Inertialbeobachters die einzige nichttriviale Gleichzeitigkeit ist, die sich überhaupt definieren lässt; andere bestreiten seine Voraussetzungen. Die <em>Stanford Encyclopedia</em> schreibt, die Debatte scheine „far from settled“. Was meine Beispiele zeigen und was nicht, sollte ich auseinanderhalten. Die fünf und sieben Sekunden zeigen, dass man wählen muss, in welchem Bezugssystem man halbiert, was niemand bestreitet; sie zeigen nicht, dass die Mitte innerhalb eines Systems beliebig ist, und genau das ist umstritten. Dasselbe gilt für die zehn Sekunden zwischen den beiden Richtungen: Sie sind eine Aussage im vereinbarten Bezugssystem des Sonnensystems, keine Messung in nur einer Richtung. Ich schreibe „festlegen“, weil Einstein „Festsetzung“ schrieb, nicht weil ich die Frage für erledigt halte.</li>
+            <li><strong>Rømers Entdeckung wird auf zweierlei Weise erzählt, und Cassini schrieb zuerst.</strong> „Der Akademie schon Anfang September vorausgesagt“ ist die Darstellung des <em>Journal des Sçavans</em>. Die Protokolle der Akademie aus diesen Monaten sind verloren; Bobis und Lequeux rekonstruieren sie aus Du Hamels Geschichte der Akademie (1698) und einer Abschrift von vor 1738. Danach wurde am 22. August 1676 unter Cassinis Namen angekündigt, das Wiederauftauchen vom 16. November werde etwa zehn Minuten später kommen — auch dort schon damit erklärt, dass das Licht „zehn oder elf Minuten“ für den Radius der Erdbahn brauche. Bobis und Lequeux folgern, die erste schriftliche Darstellung der Entdeckung stamme „unbestreitbar“ von Cassini; er gab die Idee später auf, Rømer verteidigte sie. Ob das Wiederauftauchen vom 16. November beobachtet wurde, ist unbekannt; auf das vom 9. November beruft sich das <em>Journal</em>. Die „22“ des Berichts für den Durchmesser der Erdbahn steht ohne Einheit da; Huygens las sie 1677 in einem Brief an Rømer als Minuten. Der heutige Wert, zwei Astronomische Einheiten geteilt durch die Lichtgeschwindigkeit, beträgt 16,6 Minuten. Die erste Zahl für die Geschwindigkeit selbst stammt von Huygens: etwa zehn Erddurchmesser pro Sekunde in jenem Brief von 1677 („decem circiter diametros terrae“), sechzehn zwei Drittel im Buch von 1690.</li>
+            <li><strong>Minkowskis Satz handelt von der Wahl eines Bezugssystems.</strong> Jeder Moment auf der violetten Strecke ist in <em>irgendeinem</em> Inertialsystem gleichzeitig mit deinem „Jetzt“ — aber das „Jetzt“ dort draußen zu verschieben, ist teuer: Für eine Stunde muss sich dieses System mit einem Vierundzwanzigstel der Lichtgeschwindigkeit bewegen, für die Enden der Strecke fast mit der vollen. Bei Voyagers siebzehn Kilometern pro Sekunde sind es etwa fünf Sekunden, bei der jährlichen Schwankung der Erdgeschwindigkeit etwa sieben in jede Richtung. Beide Zahlen sind meine Rechnung, Δt = vL/c², in einem zweiten Durchgang nachgeprüft. (Die Gebiete <em>innerhalb</em> der Kegel hat Minkowski durchaus benannt, „diesseits“ und „jenseits von O“; das zwischen ihnen nennt er nur „das Gebiet zwischen den Kegeln“.)</li>
+            <li><strong>Das Instrument rechnet mit Näherungen und sagt, wie gut sie sind.</strong> Seine Tabelle enthält die Lichtlaufzeiten des JPL für ankommendes Licht, von der Sonde zur Erde, im Abstand von zehn Tagen, von 1977 bis 2059, die es auf eine Zehntelsekunde genau interpoliert. Die beiden anderen Richtungen leitet es aus der Geschwindigkeit der Sonde entlang der Sichtlinie ab, als konstant angenommen; verglichen mit den Zustandsvektoren des JPL trifft jede ihren eigenen Zeitpunkt auf eine Hundertstelsekunde. Alle Zeiten beziehen sich auf den Erdmittelpunkt; bei einer Antenne an der Erdoberfläche weicht die Zeit um bis zu eine fünfzigstel Sekunde ab, was jeden Zeitpunkt um etwa vier Minuten verschiebt.</li>
+            <li><strong>Die Funkangaben sind alt oder unsicher.</strong> Der „Bruchteil eines trillionstel Watts“ und die Kühlschrankbirne stammen aus der NASA-Mitteilung von 2013, die den Sender mit etwa 23 Watt angab; die technische Zusammenfassung des JPL nennt für seinen Verstärker 12 oder 18 Watt. Ich habe den Vergleich der NASA behalten und keine Wattzahl wiederholt, die ich nicht klären konnte.</li>
+            <li><strong>„Das erste“ ist die Aussage der NASA, „stumm“ meine Erwartung.</strong> Die Zeitpunkte für Voyager 2 und Pioneer 10 sind Vorhersagen des JPL, die für Pioneer 10 eine grobe: Ihre Bahn in Horizons ist eine ältere Zusammenführung, die das JPL nur mit Vorsicht zu verwenden rät. Pioneer 10 schweigt seit Januar 2003 (die NASA nennt den 23., eine Mitteilung den 22.); dass Voyager 2 bis 2035 schweigen wird, ist eine Prognose aus ihrer sinkenden Leistung, keine Tatsache.</li>
+            <li><strong>„Niemand hat den Kurs geändert“ ist enger gemeint, als es klingt.</strong> Die Neuanpassung von 2022 berücksichtigt kleine, ständige Beschleunigungen durch die Lagesteuerung und die Wärme der Radionuklidbatterien. Was es nicht gegeben hat, ist ein Manöver, das die Bahn ändern sollte: Die Kurskorrekturdüsen von Voyager 1 blieben von November 1980 bis 2017 unbenutzt und helfen seitdem nur noch beim Ausrichten. Der Bericht von 2002 hält fest, für die interstellare Mission sei keine Abweichung von den zuvor festgelegten Bahnen geplant gewesen.</li>
+            <li><strong>Der Lichttag ist exakt, und die NASA-Seite ist fünfzehn Kilometer zu kurz.</strong> Die Lichtgeschwindigkeit ist festgelegt, ein Lichttag sind also genau 25.902.068.371,2 Kilometer; die NASA-Seite „What Is a Light-Day?“ druckt 25.902.068.356. Das ändert hier nichts. Ich erwähne es nur, weil jede andere Zahl in dieser Notiz unsicherer ist als diese.</li>
+            <li><strong>Übersetzungen englischer Zitate sind meine</strong>, ebenso die einfachen Anführungszeichen innerhalb der Einstein-Zitate: Im Original stehen auch die inneren Zitate in doppelten Zeichen.</li>
+          </ul>
+          </div>
+        </section>
+      </div>
+    </article>
+    <!-- note:008 end -->
   </main>
 
   <section class="howto" id="how">
@@ -3052,6 +3310,273 @@
     // here governs only the sound: the button owns `wanted`; scrolling the instrument out
     // of view or hiding the tab fades the tone out, and coming back resumes it only if
     // the reader had left it playing.
+  });
+
+  // ---- note 008: a day away ----
+  wire("note 008", () => {
+    const need = id => { const el = document.getElementById(id); if (!el) throw new Error("#" + id + " is missing"); return el; };
+    const cvs = need("dayCanvas");
+    const ctx = cvs.getContext("2d");
+    const slider = need("daySlider");
+    const out = { down: need("dayDown"), geo: need("dayGeo"), up: need("dayUp"), reply: need("dayReply") };
+    const lbl = { down: need("dayDownLbl"), geo: need("dayGeoLbl"), up: need("dayUpLbl"), reply: need("dayReplyLbl"),
+      when: need("dayLblWhen"), go: need("dayLblGo") };
+    const chips = { now: need("dayNow"), up: need("dayUpX"), geo: need("dayGeoX"), down: need("dayDownX"), apr: need("dayApr") };
+
+    // ---- the ephemeris ----
+    // One-way light time from Voyager 1 to the centre of the Earth, for light *arriving* at the
+    // instant in question (JPL Horizons quantity 21, "1-way down-leg light-time"), in tenths of a
+    // second, every ten days from 1977-09-06 00:00 UTC to 2059-12-25, delta-coded: the first number
+    // is the value, each later one the change since the one before. Source: Horizons, target -31,
+    // observer 500@399, trajectory Voyager_1_ST+refit2022_m, fetched 2026-11-14. That trajectory is
+    // a 2022 refit of tracking data that ends in 1992; every value after that is JPL's prediction.
+    // Catmull-Rom interpolation stays within 0.1 s of Horizons' daily values for 2024-2032.
+    const DAY = 864e5, EPH_T0 = Date.UTC(1977, 8, 6), EPH_STEP = 10 * DAY;
+    const EPH = (s => { let v = 0; return s.split(",").map(d => (v += +d) / 10); })("13,294,289,284,290,316,366,435,517,607,696,782,860,931,991,1040,1078,1105,1120,1124,1117,1100,1071,1033,985,930,866,794,717,633,544,451,355,258,157,60,-38,-130,-217,-297,-365,-421,-459,-479,-474,-446,-387,-301,-188,-50,105,272,440,602,756,849,730,802,855,893,913,917,907,885,850,804,751,688,619,542,462,376,287,196,106,14,-73,-158,-235,-304,-362,-406,-435,-444,-434,-400,-344,-264,-162,-41,95,242,393,543,685,815,931,1025,1101,1155,1189,1203,1196,1172,1132,1075,1006,924,831,730,622,508,392,274,157,47,-55,-258,-449,-512,-556,-578,-580,-558,-512,-442,-350,-237,-109,33,181,332,479,618,744,855,945,1019,1068,1099,1108,1097,1067,1022,958,882,794,693,587,472,354,237,118,5,-100,-197,-279,-346,-394,-422,-428,-409,-367,-303,-216,-111,10,143,283,425,565,697,818,927,1017,1088,1141,1172,1183,1174,1145,1099,1036,957,866,763,653,535,413,293,172,59,-46,-140,-219,-279,-322,-341,-338,-312,-263,-193,-103,5,125,254,389,524,656,779,892,990,1072,1135,1179,1203,1205,1190,1153,1100,1029,944,847,738,623,501,379,257,140,31,-67,-150,-218,-265,-291,-296,-276,-235,-172,-89,9,123,246,375,506,635,758,872,971,1058,1125,1174,1205,1213,1203,1173,1124,1058,977,881,774,660,539,416,294,175,66,-34,-119,-187,-236,-264,-269,-252,-213,-153,-74,23,131,252,378,506,632,754,865,966,1052,1121,1172,1203,1214,1206,1177,1130,1065,984,890,783,668,547,424,302,184,74,-23,-109,-175,-222,-249,-253,-234,-195,-134,-54,41,149,268,392,518,642,762,872,970,1055,1122,1172,1203,1213,1204,1174,1126,1060,978,882,775,659,538,415,293,176,67,-29,-110,-173,-218,-241,-241,-219,-177,-113,-32,64,173,291,415,539,662,778,886,983,1063,1129,1176,1203,1211,1199,1166,1116,1047,963,865,755,639,517,394,273,157,51,-42,-119,-179,-218,-235,-232,-204,-158,-91,-7,92,202,321,443,566,687,802,906,999,1077,1138,1181,1205,1208,1191,1156,1100,1029,941,840,729,611,487,365,245,132,29,-60,-133,-187,-220,-231,-222,-189,-137,-66,22,123,235,354,477,598,718,828,930,1019,1093,1148,1187,1205,1204,1182,1141,1082,1005,914,810,696,577,453,330,213,102,3,-81,-148,-196,-222,-228,-210,-172,-115,-38,54,158,271,391,514,634,750,859,956,1040,1109,1160,1193,1205,1197,1170,1124,1059,978,882,775,659,537,414,293,177,70,-25,-103,-164,-204,-224,-222,-198,-153,-88,-8,88,195,311,431,552,672,785,890,984,1063,1125,1171,1197,1202,1190,1155,1103,1033,946,847,736,618,495,373,252,139,37,-53,-125,-179,-213,-223,-215,-182,-131,-61,26,125,236,352,473,594,710,822,922,1011,1084,1142,1180,1199,1199,1178,1138,1079,1003,912,807,694,575,450,329,210,101,3,-81,-146,-193,-218,-221,-203,-165,-106,-30,62,165,277,396,517,635,751,858,954,1038,1106,1156,1188,1199,1192,1165,1117,1051,970,874,766,649,527,405,283,168,62,-30,-107,-166,-204,-221,-216,-190,-144,-78,4,100,206,322,441,561,679,791,895,986,1063,1125,1169,1193,1198,1182,1147,1094,1021,933,833,721,602,480,356,237,126,24,-62,-132,-183,-212,-222,-207,-174,-120,-47,40,141,251,367,488,606,723,831,930,1016,1088,1143,1179,1196,1192,1170,1127,1066,988,894,789,674,553,430,308,191,84,-12,-93,-154,-197,-218,-218,-196,-154,-92,-14,79,184,296,415,535,652,766,870,965,1046,1110,1158,1187,1196,1185,1153,1104,1035,951,853,743,624,503,380,259,146,42,-47,-119,-175,-207,-221,-211,-181,-130,-62,23,120,229,344,463,582,699,808,909,998,1073,1131,1170,1192,1193,1173,1135,1077,1001,912,808,694,575,451,329,211,101,4,-79,-145,-191,-215,-219,-200,-163,-103,-29,62,165,275,393,512,630,744,851,946,1030,1098,1148,1181,1193,1186,1159,1112,1047,966,868,762,644,523,399,278,164,58,-33,-109,-166,-204,-219,-213,-187,-139,-74,8,104,210,324,443,561,678,789,892,982,1059,1121,1163,1187,1193,1176,1141,1086,1014,925,825,712,593,470,347,228,118,17,-67,-136,-185,-212,-219,-204,-168,-114,-40,48,147,259,373,493,611,726,833,931,1016,1086,1140,1176,1191,1187,1163,1119,1057,978,884,776,662,540,417,296,179,73,-21,-99,-159,-199,-218,-214,-191,-147,-83,-4,89,195,307,424,544,660,773,875,969,1048,1110,1157,1185,1191,1179,1145,1095,1024,938,839,728,609,487,363,244,132,31,-57,-127,-179,-210,-218,-207,-174,-121,-51,36,133,243,357,476,594,710,817,918,1003,1077,1132,1171,1189,1188,1166,1125,1066,988,897,791,676,556,433,310,194,86,-10,-90,-152,-194,-217,-216,-194,-153,-92,-15,77,180,292,409,528,644,757,862,956,1037,1102,1151,1180,1191,1180,1150,1101,1034,949,851,742,624,501,379,258,145,42,-48,-119,-173,-207,-219,-209,-178,-128,-60,23,122,228,343,460,579,694,804,904,992,1067,1125,1166,1186,1188,1169,1131,1073,998,907,804,690,570,447,324,206,98,0,-81,-146,-191,-214,-217,-198,-159,-100,-25,66,167,278,394,513,630,742,849,944,1026,1095,1144,1176,1190,1181,1154,1107,1041,959,863,753,638,515,391,271,157,52,-38,-113,-169,-203,-219,-211,-183,-135,-69,14,109,216,328,447,564,680,791,891,982,1058,1118,1160,1184,1187,1172,1134,1079,1007,917,815,702,582,460,337,218,109,9,-74,-140,-187,-214,-217,-202,-164,-107,-34,55,155,265,380,499,616,730,836,933,1016,1086,1139,1172,1187,1182,1157,1112,1048,967,873,765,649,527,404,282,168,62,-30,-106,-165,-201,-218,-214,-187,-141,-76,4,98,203,316,433,551,667,778,880,971,1049,1111,1156,1181,1186,1173,1138,1085,1014,926,825,713,595,471,348,230,118,19,-67,-135,-184,-212,-219,-204,-169,-114,-42,44,144,253,368,486,603,717,825,922,1007,1079,1132,1169,1186,1182,1159,1116,1055,975,882,775,660,539,415,294,178,71,-22,-100,-160,-199,-218,-215,-191,-146,-84,-5,88,192,304,421,538,655,766,870,962,1040,1105,1151,1178,1186,1174,1142,1090,1020,935,835,723,606,482,360,240,128,27,-60,-130,-180,-210,-219,-206,-174,-120,-50,36,134,242,356,474,591,706,814,912,999,1071,1127,1166,1184,1182,1162,1120,1061,983,891,785,671,549,427,304,188,81,-15,-94,-154,-197,-217,-215,-194,-152,-90,-13,79,182,293,410,527,643,756,860,953,1033,1099,1146,1176,1186,1175,1145,1095,1028,942,845,734,616,493,371,250,138,35,-53,-124,-176,-208,-219,-208,-177,-126,-56,27,125,231,346,463,581,695,803,904,991,1065,1122,1162,1183,1183,1164,1125,1066,990,900,795,681,560,437,315,198,89,-6,-88,-150,-194,-216,-216,-196,-156,-96,-20,70,173,283,399,517,633,745,851,944,1027,1093,1142,1174,1185,1177,1148,1100,1034,950,853,744,626,504,381,260,147,43,-46,-118,-173,-206,-219,-210,-180,-130,-63,19,116,222,336,452,570,686,794,894,984,1059,1117,1159,1181,1184,1166,1128,1071,998,907,804,690,571,447,325,207,98,0,-81,-146,-191,-215,-217,-199,-159,-102,-27,62,163,274,388,507,623,735,842,936,1019,1088,1138,1171,1185,1177,1151,1105,1039,958,861,752,636,514,390,270,155,52,-40,-113,-169,-205,-219,-211,-183,-136,-69,12,107,213,325,443,560,675,785,886,976,1052,1112,1156,1179,1183,1168,1131,1077,1003,914,813,700,579,457,334,216,106,7,-76,-141,-189,-213,-219,-201,-163,-108,-34,54,155,263,379,496,613,726,832,929,1012,1081,1135,1168,1183,1178,1153,1108,1045,964,869,761,645,523,399,279,163,59,-33,-109,-166,-203,-219,-213,-187,-140,-76,5,99,204,315,433,550,665,775,878,968,1046,1107,1152,1177,1183,1169,1134,1080,1010,921,820,709,588,466,343,224,113,15,-71,-138,-186,-213,-219,-203,-168,-113,-41,47,146,254,369,486,603,717,823,920,1006,1075,1130,1166,1181,1179,1155,1111,1050,970,876,769,653,533,408,287,172,65,-27,-104,-163,-201,-219,-215,-189,-145,-82,-2,91,194,307,422,540,656,767,869,961,1039,1103,1148,1175,1183,1169,1137,1085,1014,929,827,717,597,475,351,233,121,21,-66,-134,-182,-213,-219,-206,-172,-117,-47,39,137,246,359,477,594,707,815,913,999,1070,1126,1163,1180,1179,1157,1115,1054,976,883,778,662,540,418,295,180,73,-22,-99,-159,-199,-218,-216,-193,-148,-88,-8,83,186,298,414,530,647,758,862,954,1033,1098,1145,1173,1183,1171,1139,1089,1020,935,836,724,607,483,360,241,129,27,-59,-129,-181,-210,-220,-207,-175,-122,-53,33,130,237,351,468,585,699,807,906,992,1065,1122,1160,1181,1179,1159,1118,1059,983,890,785,671,550,426,304,188,80,-15,-94,-155,-197,-217,-217,-194,-153,-91,-15,76,179,289,405,523,638,750,854,948,1028,1093,1142,1172,1182,1173,1142,1094,1025,942,843,733,614,493,369,249,137,34,-54,-124,-178,-209,-219,-209,-177,-126,-58,26,123,229,343,459,577,691,799,899,986,1061,1118,1158,1179,1180,1161,1122,1064,989,897,793,679,558,435,313,195,88,-9,-89,-152,-194,-217,-217,-196,-156,-97,-20,69,172,281,397,514,630,742,847,941,1023,1089,1139,1170,1182,1173,1146,1097,1031,947,850,741,624,501,377,258,143,42,-49,-120,-174,-208,-219,-210,-181,-130,-63,20,115,222,334,451,568,683,792,892,980,1056,1114,1156,1177,1181,1163,1125,1068,994,904,801,686,567,443,321,203,95,-3,-84,-148,-193,-215,-218,-199,-159,-102,-26,63,163,274,388,505,623,734,839,934,1017,1085,1135,1168,1182,1174,1148,1101,1035,954,857,748,632,509,385,265,151,47,-42,-117,-171,-206,-220,-211,-183,-135,-68,13,108,214,326,443,560,674,784,885,974,1050,1110,1153,1177,1180,1164,1128,1072,999,910,808,694,575,451,329,210,101,3,-79,-145,-190,-216,-218,-201,-163,-106,-33,57,156,265,380,497,613,727,831,928,1011,1080,1132,1166,1180,1175,1149,1105,1040,959,863,756,639,517,393,273,158,53,-38,-112,-169,-205,-219,-213,-186,-139,-74,7,101,206,318,434,552,666,777,877,968,1045,1106,1150,1175,1180,1165,1131,1076,1004,916,814,702,582,459,337,217,108,9,-76,-141,-188,-215,-219,-203,-166,-111,-38,49,149,257,372,489,605,719,824,921,1006,1075,1128,1164,1180,1175,1151,1107,1045,965,869,763,647,524,402,280,165,59,-32,-109,-165,-204,-219,-215,-188,-143,-79,1,95,198,310,426,544,658,769,871,962,1039,1103,1147,1173,1181,1166,1133,1080,1009,922,821,709,590,467,344,226,114,14,-70,-138,-185,-214,-220,-204,-170,-115,-43,43,142,250,364,481,598,710,818,915,1000,1071,1125,1162,1179,1176,1153,1111,1049,970,877,769,655,532,410,288,172,66,-27,-104,-163,-201,-219,-215,-191,-146,-83,-5,89,191,303,418,536,651,762,864,956,1036,1098,1145,1172,1180,1169,1135,1084,1015,928,828,717,597,476,352,232,122,20,-65,-133,-184,-211,-220,-206,-172,-119,-48,37,135,243,357,473,591,703,811,909,995,1067,1122,1160,1179,1177,1155,1114,1054,976,883,777,662,541,417,296,179,73,-21,-100,-159,-199,-219,-215,-193,-149,-88,-10,82,185,296,411,528,644,755,858,951,1030,1095,1142,1172,1180,1169,1139,1088,1019,934,835,725,605,483,360,240,128,27,-60,-130,-180,-211,-219,-208,-175,-122,-53,31,129,236,349,466,583,697,804,903,990,1062,1119,1158,1178,1178,1157,1117,1059,981,889,784,669,549,425,303,187,78,-15,-95,-156,-198,-217,-217,-194,-153,-92,-15,76,177,289,403,521,637,747,852,945,1025,1092,1139,1170,1180,1170,1141,1092,1024,940,841,731,614,490,367,248,134,33,-55,-126,-178,-210,-220,-208,-178,-126,-58,25,123,228,342,458,575,690,797,896,985,1058,1115,1157,1176,1178,1159,1120,1062,986,895,791,677,556,432,310,193,86,-11,-91,-153,-196,-217,-217,-197,-156,-97,-20,69,171,281,396,513,629,740,845,939,1020,1087,1137,1168,1179,1172,1142,1095,1029,945,847,738,620,498,375,254,141,38,-50,-123,-176,-208,-221,-210,-180,-131,-63,20,115,222,334,450,568,681,791,890,978,1054,1112,1153,1176,1178,1160,1122,1066,991,901,797,683,563,440,317,200,91,-5,-87,-151,-194,-217,-218,-199,-160,-101,-26,63,164,273,389,505,621,734,837,933,1016,1082,1134,1166,1179,1172,1144,1098,1033,950,853,745,627,506,381,261,148,43,-46,-119,-173,-208,-220,-212,-183,-135,-68,14,109,214,327,443,559,675,783,884,973,1048,1109,1151,1174,1178,1161,1125,1070,995,907,803,691,570,447,324,207,97,-1,-82,-147,-192,-217,-219,-201,-163,-105,-32,57,158,266,380,498,614,726,832,927,1010,1079,1130,1165,1178,1172,1147,1101,1037,956,859,751,635,512,390,268,153,50,-41,-115,-171,-206,-220,-214,-185,-138,-73,9,103,207,319,436,552,668,776,878,968,1044,1105,1149,1173,1179,1163,1127,1073,1001,912,810,698,577,455,331,214,103,5,-77,-144,-190,-215,-220,-203,-165,-109,-36,51,151,259,374,491,607,719,825,922,1005,1076,1128,1162,1178,1174,1149,1104,1041,962,866,758,642,520,396,276,160,56,-36,-111,-168,-204,-220,-214,-187,-142,-76,3,97,201,313,429,545,661,770,872,963,1040,1102,1147,1172,1179,1164,1131,1077,1006,918,816,705,585,462,339,220,111,10,-73,-140,-188,-214,-219,-204,-168,-113,-41,46,145,252,368,483,600,713,819,917,1001,1071,1125,1161,1178,1175,1151,1107,1046,966,873,765,649,527,404,283,167,62,-31,-107,-165,-202,-220,-215,-189,-145,-81,-1,91,195,305,422,539,653,764,867,957,1036,1099,1144,1172,1178,1166,1133,1081,1010,924,823,712,592,469,347,227,116,17,-69,-137,-185,-213,-220,-206,-171,-116,-46,40,139,246,360,477,593,706,813,910,997,1067,1122,1160,1177,1175,1153,1110,1050,972,877,772,656,535,411,290,173,68,-26,-103,-162,-201,-219,-216,-192,-147,-86,-7,85,188,299,415,531,647,757,860,952,1031,1095,1142,1170,1179,1167,1135,1085,1014,929,829,718,600,476,353,235,122,21,-64,-134,-183,-212,-221,-207,-173,-121,-50,34,132,240,352,470,585,700,806,905,991,1063,1119,1157,1177,1175,1154,1114,1053,976,884,777,664,541,418,296,180,73,-21,-99,-160,-199,-219,-217,-195,-150,-90,-13,79,182,291,408,524,639,751,853,947,1027,1091,1139,1169,1178,1168,1137,1087,1019,934,835,725,606,483,360,240,129,26,-60,-130,-182,-211,-221,-209,-176,-125,-55,29,126,232,346,461,579,692,800,899,985,1059,1116,1155,1176,1175,1156,1116,1057,981,889,784,669,549,425,303,186,78,-16,-95,-157,-198,-219,-218,-196,-155,-94,-17,73,175,284,400,517,632,744,848,941,1022,1088,1136,1167,1178,1168,1140,1090,1023,940,840,732,612,491,367,247,134,32,-56,-126,-179,-211,-221,-210,-179,-129,-60,24,119,226,339,455,571,686,793,893,981,1055,1113,1153,1174,1176,1158,1118,1061,986,894,791,676,556,432,309,193,85,-11,-92,-154,-196,-218,-219,-198,-157,-98,-22,67,169,278,393,510,626,737,842,936,1017,1085,1134,1165,1178,1170,1142,1093,1028,945,847,737,621,497,374");
+    if (EPH.length !== 3007) throw new Error("the ephemeris has " + EPH.length + " points, expected 3007");
+    const LAUNCH = Date.UTC(1977, 8, 5, 12, 56, 1), DAY0 = Date.UTC(1977, 8, 5);
+    const EPH_END = EPH_T0 + (EPH.length - 1) * EPH_STEP;
+    const P = i => i < 0 ? 2 * EPH[0] - EPH[1]
+      : i >= EPH.length ? 2 * EPH[EPH.length - 1] - EPH[EPH.length - 2] : EPH[i];
+    function down(ms) {
+      if (ms <= LAUNCH) return 0;
+      if (ms < EPH_T0) return EPH[0] * (ms - LAUNCH) / (EPH_T0 - LAUNCH);
+      const x = (Math.min(ms, EPH_END) - EPH_T0) / EPH_STEP;
+      const i = Math.min(Math.floor(x), EPH.length - 2), f = x - i;
+      const p0 = P(i - 1), p1 = P(i), p2 = P(i + 1), p3 = P(i + 2);
+      return p1 + 0.5 * f * (p2 - p0 + f * (2 * p0 - 5 * p1 + 4 * p2 - p3 + f * (3 * (p1 - p2) + p3 - p0)));
+    }
+    // Voyager runs away from a signal while it travels, so the two directions differ. Along the
+    // line of sight it recedes at about 16.88 km/s (Horizons, Nov 2026; within 0.4 km/s of that
+    // since 1981). With beta = v/c, and the Earth taken where it is at the instant in question:
+    //   light arriving now   rho                    (the table)
+    //   a signal sent now    u = rho (1+b)/(1-b)    (about rho + 9.7 s at a light-day)
+    //   the distance "now"   g = rho (1+b)          (the geometric distance at this instant, which
+    //                                               is NASA's definition, and the mean of the two)
+    // Checked against Horizons state vectors: each agrees to 0.01 s at its own crossing.
+    const BETA = 16.88 / 299792.458;
+    const up = ms => down(ms) * (1 + BETA) / (1 - BETA);
+    const geo = ms => down(ms) * (1 + BETA);
+    // The earliest answer to a signal sent at ms: it reaches the craft at a = ms + u, and the
+    // reply reaches Earth at T where T = a + rho(T). Three rounds settle T to the millisecond.
+    function reply(ms) {
+      const a = ms + up(ms) * 1e3;
+      let T = a + down(ms) * 1e3;
+      for (let n = 0; n < 3; n++) T = a + down(T) * 1e3;
+      return T;
+    }
+    // The three moments the craft is "one light-day away", depending on what that means
+    // (state-vector solutions, UTC; the middle one is NASA's published time to the second).
+    const MOMENTS = {
+      up: Date.UTC(2026, 10, 17, 18, 24, 45),     // a signal sent from Earth first needs a full day
+      geo: Date.UTC(2026, 10, 18, 10, 16, 7),     // the distance "now" is a light-day
+      down: Date.UTC(2026, 10, 19, 2, 17, 27),    // light arriving has been travelling a full day
+      apr: Date.UTC(2027, 3, 25, 12)              // the Earth's spring run brings it closest to the line
+    };
+
+    let lang = "en", live = true, t = Date.now();
+    const LOC = { en: "en-GB", de: "de-DE" };
+    const I18N = {
+      en: { when: "when", go: "go to", now: "now",
+        down: "light reaching us has travelled", geo: "distance now, by definition", up: "a signal sent now needs",
+        reply: "earliest possible reply", ofLight: "of light", bn: "billion km",
+        before: "not launched yet", beyond: "beyond JPL's table",
+        earth: "earth", voy: "voyager 1", none: "neither past nor future",
+        left: "left it", reaches: "reaches it", answer: "reply", nowThere: ["“now” there,", "by definition"],
+        chips: { now: "now", up: "17 nov", geo: "18 nov", down: "19 nov", apr: "apr 2027" },
+        chipAria: { now: "now, live", up: "17 November 2026, 18:25 UTC: a signal from Earth first needs a whole day",
+          geo: "18 November 2026, 10:16 UTC: NASA's moment, the distance is one light-day",
+          down: "19 November 2026, 02:17 UTC: light reaching Earth has travelled a whole day",
+          apr: "25 April 2027: the closest it comes back to the line" },
+        slider: "date" },
+      de: { when: "wann", go: "springe zu", now: "jetzt",
+        down: "ankommendes Licht war unterwegs", geo: "Entfernung jetzt, per Definition", up: "ein Signal von jetzt braucht",
+        reply: "frühestmögliche Antwort", ofLight: "Licht", bn: "Mrd. km",
+        before: "noch nicht gestartet", beyond: "jenseits der JPL-Tabelle",
+        earth: "Erde", voy: "Voyager 1", none: "weder Vergangenheit noch Zukunft",
+        left: "abgeschickt", reaches: "kommt an", answer: "Antwort", nowThere: ["„jetzt“ dort,", "per Definition"],
+        chips: { now: "jetzt", up: "17. nov", geo: "18. nov", down: "19. nov", apr: "apr 2027" },
+        chipAria: { now: "jetzt, live", up: "17. November 2026, 18:25 UTC: Ein Signal von der Erde braucht erstmals einen ganzen Tag",
+          geo: "18. November 2026, 10:16 UTC: der Zeitpunkt der NASA, die Entfernung beträgt einen Lichttag",
+          down: "19. November 2026, 02:17 UTC: Licht, das die Erde erreicht, war einen ganzen Tag unterwegs",
+          apr: "25. April 2027: so nah wie danach nie wieder an der Linie" },
+        slider: "Datum" }
+    };
+
+    const pad = n => String(n).padStart(2, "0");
+    const dur = s => { s = Math.round(s); return Math.floor(s / 3600) + " h " + pad(Math.floor(s / 60) % 60) + " min " + pad(s % 60) + " s"; };
+    const when = (ms, sec) => new Intl.DateTimeFormat(LOC[lang], { weekday: "short", day: "numeric", month: "short",
+      year: "numeric", hour: "2-digit", minute: "2-digit", second: sec ? "2-digit" : undefined, timeZoneName: "short" }).format(ms);
+    const hm = ms => new Intl.DateTimeFormat(LOC[lang], { weekday: "short", hour: "2-digit", minute: "2-digit" }).format(ms);
+    const km = s => { const b = (s * 299792.458 / 1e9).toFixed(2); return (lang === "de" ? b.replace(".", ",") : b) + "\u00a0" + I18N[lang].bn.replace(" ", "\u00a0"); };
+
+    function readouts() {
+      const T = I18N[lang];
+      const set = (el, txt, exact) => { el.textContent = txt; el.classList.toggle("exact", !!exact); };
+      const day = s => Math.round(s) === 86400;
+      if (t <= LAUNCH) { for (const k in out) set(out[k], T.before); }
+      else if (t > EPH_END) { for (const k in out) set(out[k], T.beyond); }
+      else {
+        const r = down(t), g = geo(t), u = up(t);
+        set(out.down, dur(r), day(r));
+        set(out.geo, dur(g) + " " + T.ofLight + " · " + km(g), day(g));
+        set(out.up, dur(u), day(u));
+        set(out.reply, when(reply(t), true));
+      }
+      slider.setAttribute("aria-valuetext", when(t, false) + " — " + T.down + " " + (t > LAUNCH ? dur(down(t)) : T.before));
+    }
+
+    let ink = "#161B23", inkSoft = "#535B6A", line = "#CBD1DC", accent = "#1F7C78", violet = "#5E52A6";
+    const cssVar = n => getComputedStyle(root).getPropertyValue(n).trim();
+    function refreshColors() {
+      ink = cssVar("--ink") || ink; inkSoft = cssVar("--ink-soft") || inkSoft; line = cssVar("--line") || line;
+      accent = cssVar("--accent") || accent; violet = cssVar("--violet") || violet;
+    }
+
+    let W = 0, H = 0;
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    // Light runs at 45 degrees, so the diagram's height follows from its width: three and a
+    // half days across leaves room for one light-day up. On a narrow screen the reply is allowed
+    // to run off the right edge rather than shrink everything to unreadable.
+    const M = 16, TOP = 52, BOT = 42;
+    const span = () => W < 480 ? 2.5 : 3.4;
+    function resize() {
+      W = Math.max(280, cvs.getBoundingClientRect().width);
+      H = Math.round(Math.min(340, Math.max(220, TOP + BOT + 14 + (W - 2 * M) / span())));
+      cvs.style.height = H + "px";
+      cvs.width = Math.round(W * dpr); cvs.height = Math.round(H * dpr);
+      draw();
+    }
+    const MONO = "10px ui-monospace, SFMono-Regular, Menlo, monospace";
+    function arrow(x0, y0, x1, y1) {
+      const a = Math.atan2(y1 - y0, x1 - x0), s = 6;
+      ctx.beginPath(); ctx.moveTo(x1, y1);
+      ctx.lineTo(x1 - s * Math.cos(a - 0.45), y1 - s * Math.sin(a - 0.45));
+      ctx.lineTo(x1 - s * Math.cos(a + 0.45), y1 - s * Math.sin(a + 0.45));
+      ctx.closePath(); ctx.fill();
+    }
+    // a label centred on x, kept inside the canvas; returns its extent so others can avoid it
+    function label(txt, x, y, color, minX, maxX) {
+      const w = ctx.measureText(txt).width;
+      const lo = Math.max(minX !== undefined ? minX : 6, Math.min(x - w / 2, (maxX !== undefined ? maxX : W - 6) - w));
+      ctx.fillStyle = color; ctx.textAlign = "left"; ctx.fillText(txt, lo, y);
+      return [lo, lo + w];
+    }
+
+    // A spacetime diagram lying on its side: time runs to the right, distance runs up, and the
+    // two use the same scale, so light always travels at 45 degrees. The Earth's timeline is the
+    // bottom line, Voyager's the top one, as far above it as the craft is away.
+    function draw() {
+      const T = I18N[lang];
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+      ctx.font = MONO; ctx.textBaseline = "alphabetic";
+      const ms = Math.min(Math.max(t, LAUNCH), EPH_END);
+      const r = down(ms) / 86400, g = geo(ms) / 86400, u = up(ms) / 86400, rt = (reply(ms) - ms) / DAY;
+      const ref = Math.max(1, u);          // the scale holds still until a light-day, then zooms out
+      const m = M;
+      const k = Math.min((H - TOP - BOT) / ref, (W - 2 * m) / (span() * ref));   // pixels per day
+      const xNow = m + 1.3 * ref * k, yE = H - BOT, yV = yE - g * k;
+      const xIn = xNow - r * k, xOut = xNow + u * k, xBack = xNow + rt * k;
+
+      // the two timelines
+      ctx.strokeStyle = line; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(m, yE + 0.5); ctx.lineTo(W - m, yE + 0.5); ctx.stroke();
+      ctx.fillStyle = inkSoft; ctx.textAlign = "left"; ctx.fillText(T.earth, m, yE - 7);
+      // day ticks along the Earth's line, relative to the moment
+      for (let n = -3; n <= 4; n++) {
+        const x = xNow + n * k;
+        if (x < m || x > W - m || n === 0) continue;
+        ctx.strokeStyle = line; ctx.beginPath(); ctx.moveTo(x + 0.5, yE); ctx.lineTo(x + 0.5, yE + 5); ctx.stroke();
+        ctx.fillStyle = inkSoft; ctx.textAlign = "center";
+        ctx.fillText((n > 0 ? "+" : "−") + 24 * Math.abs(n) + " h", x, yE + 16);
+      }
+      ctx.textAlign = "left";
+      label((live ? T.now + " · " : "") + when(t, false), xNow, H - 8, ink);
+
+      if (t <= LAUNCH || g * k < 2) {      // before launch the two timelines are one
+        ctx.fillStyle = ink; ctx.beginPath(); ctx.arc(xNow, yE, 3.5, 0, Math.PI * 2); ctx.fill();
+        label(t <= LAUNCH ? T.before : T.voy, xNow, yE - 22, inkSoft);
+        return;
+      }
+      ctx.strokeStyle = line;
+      ctx.beginPath(); ctx.moveTo(m, yV + 0.5); ctx.lineTo(W - m, yV + 0.5); ctx.stroke();
+
+      // the stretch of Voyager's history that is, for you, neither past nor future
+      ctx.strokeStyle = violet; ctx.lineWidth = 5; ctx.globalAlpha = 0.55; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(Math.max(m, xIn), yV + 0.5); ctx.lineTo(Math.min(W - m, xOut), yV + 0.5); ctx.stroke();
+      ctx.globalAlpha = 1; ctx.lineCap = "butt"; ctx.lineWidth = 1;
+
+      // "now" over there, by Einstein's rule: halfway between the light that left and the light that will arrive
+      const xMid = xNow + (u - r) / 2 * k;
+      ctx.strokeStyle = inkSoft; ctx.setLineDash([3, 4]); ctx.globalAlpha = 0.8;
+      ctx.beginPath(); ctx.moveTo(xMid + 0.5, yE); ctx.lineTo(xMid + 0.5, yV); ctx.stroke();
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+      // its label goes where the gap between the dashed line and the outgoing light is wide enough
+      const wL = Math.max(ctx.measureText(T.nowThere[0]).width, ctx.measureText(T.nowThere[1]).width) + 10;
+      const hgt = yE - yV, fl = Math.max(0.5, wL / (u * k)), y1 = yE - fl * hgt, y0 = y1 - 12;
+      ctx.fillStyle = inkSoft; ctx.textAlign = "left";
+      if (y0 - 7 > yV + 2) { ctx.fillText(T.nowThere[0], xMid + 6, y0); ctx.fillText(T.nowThere[1], xMid + 6, y1); }
+
+      // light: what arrives now, what you send now, and the earliest answer to it
+      ctx.strokeStyle = accent; ctx.fillStyle = accent; ctx.lineWidth = 1.8;
+      ctx.beginPath(); ctx.moveTo(xIn, yV); ctx.lineTo(xNow, yE); ctx.stroke(); arrow(xIn, yV, xNow, yE);
+      ctx.beginPath(); ctx.moveTo(xNow, yE); ctx.lineTo(xOut, yV); ctx.stroke(); arrow(xNow, yE, xOut, yV);
+      ctx.globalAlpha = 0.5; ctx.setLineDash([5, 4]);
+      ctx.beginPath(); ctx.moveTo(xOut, yV); ctx.lineTo(xBack, yE); ctx.stroke();
+      ctx.setLineDash([]); arrow(xOut, yV, xBack, yE); ctx.globalAlpha = 1; ctx.lineWidth = 1;
+      if (xBack < W - m - 10) { ctx.fillStyle = accent; ctx.textAlign = "center"; ctx.fillText(T.answer, xBack, yE - 7); ctx.textAlign = "left"; }
+
+      // events: the moment, where its light left, where your signal lands
+      ctx.fillStyle = ink; ctx.beginPath(); ctx.arc(xNow, yE, 3.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = accent;
+      for (const x of [xIn, xOut]) { ctx.beginPath(); ctx.arc(x, yV, 3, 0, Math.PI * 2); ctx.fill(); }
+
+      // labels above Voyager's line: its name and the band on the lower row, the endpoints' times above
+      const rowA = yV - 10, rowB = yV - 26;
+      const band = label(T.none, (Math.max(m, xIn) + Math.min(W - m, xOut)) / 2, rowA, violet);
+      if (m + ctx.measureText(T.voy).width + 8 < band[0]) label(T.voy, m, rowA, inkSoft, m);
+      const a = label(T.left + " · " + hm(t - r * DAY), xIn, rowB, accent);
+      label(T.reaches + " · " + hm(t + u * DAY), xOut, rowB, accent, a[1] + 10);
+    }
+
+    function syncSlider() { slider.value = String(Math.round((t - DAY0 - DAY / 2) / DAY)); }
+    function pick(name) {
+      live = name === "now";
+      t = live ? Date.now() : MOMENTS[name];
+      for (const n in chips) chips[n].setAttribute("aria-pressed", String(n === name));
+      syncSlider(); readouts(); draw();
+    }
+    for (const n in chips) chips[n].addEventListener("click", () => pick(n));
+    slider.max = String(Math.floor((EPH_END - DAY0) / DAY));
+    slider.addEventListener("input", () => {
+      live = false;
+      t = DAY0 + (+slider.value) * DAY + DAY / 2;      // noon UTC on the chosen day
+      for (const n in chips) chips[n].setAttribute("aria-pressed", "false");
+      readouts(); draw();
+    });
+
+    function applyLabels() {
+      const T = I18N[lang];
+      for (const k of ["down", "geo", "up", "reply", "when", "go"]) lbl[k].textContent = T[k];
+      for (const n in chips) { chips[n].textContent = T.chips[n]; chips[n].setAttribute("aria-label", T.chipAria[n]); }
+      slider.setAttribute("aria-label", T.slider);
+    }
+    window.__daySetLang = function (l) { lang = l === "de" ? "de" : "en"; applyLabels(); readouts(); draw(); };
+
+    // Live by default: once a second, while the instrument is on screen, "now" moves on. The
+    // numbers change by about a third of a second an hour, so what you see tick is the clock,
+    // not the craft. The canvas never animates otherwise.
+    let timer = 0;
+    const ticker = {
+      start() { if (!timer) timer = setInterval(() => { if (live) { t = Date.now(); syncSlider(); readouts(); draw(); } }, 1000); },
+      stop() { clearInterval(timer); timer = 0; }
+    };
+    lifecycle(cvs, ticker, { wanted: true });
+
+    window.addEventListener("resize", resize);
+    repaint.push(() => { refreshColors(); draw(); });
+    refreshColors(); applyLabels(); syncSlider(); readouts(); resize();
   });
 
   // ================= page chrome that must outlive any note =================

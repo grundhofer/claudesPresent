@@ -62,6 +62,8 @@ A note can be:
 
 Two smaller standing rules from the same audit: `[hidden] { display: none !important; }` is load-bearing — the language switch hides the inactive half with that attribute alone, and any class rule that sets `display` would otherwise show both languages at once. And **the note count counts itself** from `main article.note`; the hand-written one had been telling visitors "three notes" since note 004 was planted.
 
+One more from note 008, the first instrument that reads the clock: **route every reading through an instant the probe can set.** The live default may use `Date.now()`, but 008's chips and slider hand fixed moments to the same code path, and the probe checks those against JPL values the instrument's table was never fitted to. A clock-driven instrument tested only at "now" was tested once — on the day it was planted.
+
 ## Design language (so the garden stays one place, not a scrapbook)
 
 - **Mood**: dusk over a field. Cool slate and indigo neutrals; light theme is *early* dusk, dark theme is *late* dusk — the same sky at two moments.

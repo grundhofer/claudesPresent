@@ -124,6 +124,61 @@ setTimeout(function(){
   chk('007 stop returns to listen', pb.getAttribute('aria-pressed')==='false'
       && pb.textContent===('$lang'==='de'?'anhören':'listen'));
 
+  // Every note is wired exactly once. A duplicated block (a splice run twice) re-wires the
+  // same handlers silently and passes every other check; this is the only place it shows.
+  // The needle is assembled at runtime, or the probe would count its own source.
+  var scriptSrc=[].slice.call(document.scripts).map(function(s){return s.textContent;}).join('\n');
+  chk('every note wired exactly once', ['001','002','003','004','005','006','007','008'].every(function(n){
+        return scriptSrc.split('wire("note '+n+'"').length-1===1; }));
+
+  // ---- note 008: a day away ----
+  var a8=document.getElementById('note-008-art');
+  if ('$lang'==='de') a8.querySelector('[data-set-lang="de"]').click();
+  var c8=document.getElementById('dayCanvas');
+  chk('008 canvas sized', c8.width>400 && c8.height>200);
+  var d8=c8.getContext('2d').getImageData(0,0,c8.width,c8.height).data;
+  var p8=0; for(var i8=3;i8<d8.length;i8+=4) if(d8[i8]!==0) p8++;
+  chk('008 instrument paints', p8>3000);
+  chk('008 lang hook is a function', typeof window.__daySetLang==='function');
+  chk('008 article lang follows switch', a8.getAttribute('lang')==='$lang');
+  var v8=[].slice.call(a8.querySelectorAll('[data-lang]')).filter(function(e){return !e.hasAttribute('hidden');});
+  chk('008 only one language visible', v8.every(function(e){return e.getAttribute('data-lang')==='$lang';}));
+  chk('008 exactly one drop cap per language', ['en','de'].every(function(L){
+        return a8.querySelectorAll('.body > div[data-lang="'+L+'"] p.open').length===1; }));
+  chk('008 kicker declares english', a8.querySelector('.kicker').getAttribute('lang')==='en');
+  chk('toc lists note 008', !!document.querySelector('.toc a[href="#note-008"]'));
+  chk('008 labels localised', document.getElementById('dayLblWhen').textContent===('$lang'==='de'?'wann':'when'));
+  chk('008 chip names localised', document.getElementById('dayGeoX').getAttribute('aria-label').indexOf('$lang'==='de'?'18. November':'18 November')===0);
+  chk('008 no scaffolding left', !/Scaffold|Gerüst|CAPTION-|pending research/.test(a8.textContent));
+  chk('008 starts live', document.getElementById('dayNow').getAttribute('aria-pressed')==='true');
+  // The ephemeris against JPL Horizons values it was never fitted to (noon UTC, quantity 21).
+  var sl=document.getElementById('daySlider');
+  var dn=function(){return document.getElementById('dayDown').textContent;};
+  var gt=function(id){return document.getElementById(id).textContent;};
+  var at=function(i){ sl.value=String(i); sl.dispatchEvent(new Event('input')); };
+  at(4545);  chk('008 1990-02-14 reads 5 h 36 min 35 s', dn()==='5 h 36 min 35 s');
+  at(12773); chk('008 2012-08-25 reads 16 h 49 min 53 s', dn()==='16 h 49 min 53 s');
+  at(16871); chk('008 2023-11-14 reads 22 h 30 min 34 s', dn()==='22 h 30 min 34 s');
+  at(24741); chk('008 2045-06-01 reads 32 h 54 min 25 s', dn()==='32 h 54 min 25 s');
+  chk('008 slider releases the live chip', document.getElementById('dayNow').getAttribute('aria-pressed')==='false');
+  // The three crossings: each chip must land its own readout on exactly one day, and only that one.
+  var ex=function(id){return document.getElementById(id).classList.contains('exact');};
+  document.getElementById('dayUpX').click();
+  chk('008 17 nov — a signal sent needs 24 h exactly', gt('dayUp')==='24 h 00 min 00 s' && ex('dayUp') && !ex('dayDown'));
+  document.getElementById('dayGeoX').click();
+  chk('008 18 nov — distance now is 24 h exactly', gt('dayGeo').indexOf('24 h 00 min 00 s')===0 && ex('dayGeo'));
+  chk('008 chips follow the choice', document.getElementById('dayGeoX').getAttribute('aria-pressed')==='true'
+      && document.getElementById('dayNow').getAttribute('aria-pressed')==='false'
+      && document.getElementById('dayUpX').getAttribute('aria-pressed')==='false');
+  chk('008 18 nov — the prose\'s 23 h 59 min 55 s and 24 h 00 min 05 s', gt('dayDown')==='23 h 59 min 55 s' && gt('dayUp')==='24 h 00 min 05 s');
+  document.getElementById('dayDownX').click();
+  chk('008 19 nov — light arriving has travelled 24 h exactly', dn()==='24 h 00 min 00 s' && ex('dayDown') && !ex('dayUp'));
+  document.getElementById('dayApr').click();
+  chk('008 apr 2027 comes back to 24 h 01 min 24 s', dn()==='24 h 01 min 24 s');
+  document.getElementById('dayNow').click();
+  chk('008 now chip returns to live', document.getElementById('dayNow').getAttribute('aria-pressed')==='true'
+      && document.getElementById('dayApr').getAttribute('aria-pressed')==='false');
+
   document.title='PROBE::'+R.join('::');
 }, 1200);
 </script>
