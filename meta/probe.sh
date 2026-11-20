@@ -128,7 +128,7 @@ setTimeout(function(){
   // same handlers silently and passes every other check; this is the only place it shows.
   // The needle is assembled at runtime, or the probe would count its own source.
   var scriptSrc=[].slice.call(document.scripts).map(function(s){return s.textContent;}).join('\n');
-  chk('every note wired exactly once', ['001','002','003','004','005','006','007','008'].every(function(n){
+  chk('every note wired exactly once', ['001','002','003','004','005','006','007','008','009'].every(function(n){
         return scriptSrc.split('wire("note '+n+'"').length-1===1; }));
 
   // ---- note 008: a day away ----
@@ -189,6 +189,53 @@ setTimeout(function(){
       && !!(cl8.compareDocumentPosition(psv) & Node.DOCUMENT_POSITION_FOLLOWING));
   chk('008 postscript dated', !!psv && psv.nextElementSibling.textContent===('$lang'==='de'?'20. November 2026':'Added 20 November 2026'));
   chk('008 kicker names the postscript', /postscript 20 nov 2026/.test(a8.querySelector('.kicker').textContent));
+  // ---- note 009: the mouse-to-elephant curve ----
+  var a9=document.getElementById('note-009-art');
+  if ('$lang'==='de') a9.querySelector('[data-set-lang="de"]').click();
+  var c9=document.getElementById('bmrCanvas');
+  chk('009 canvas sized', c9.width>400 && c9.height>200);
+  var px9=function(){ var d=c9.getContext('2d').getImageData(0,0,c9.width,c9.height).data, n=0;
+        for(var i=3;i<d.length;i+=4) if(d[i]!==0) n++; return n; };
+  chk('009 instrument paints', px9()>5000);
+  chk('009 lang hook is a function', typeof window.__bmrSetLang==='function');
+  chk('009 article lang follows switch', a9.getAttribute('lang')==='$lang');
+  var v9=[].slice.call(a9.querySelectorAll('[data-lang]')).filter(function(e){return !e.hasAttribute('hidden');});
+  chk('009 only one language visible', v9.every(function(e){return e.getAttribute('data-lang')==='$lang';}));
+  chk('009 exactly one drop cap per language', ['en','de'].every(function(L){
+        return a9.querySelectorAll('.body > div[data-lang="'+L+'"] p.open').length===1; }));
+  chk('009 kicker declares english', a9.querySelector('.kicker').getAttribute('lang')==='en');
+  chk('toc lists note 009', !!document.querySelector('.toc a[href="#note-009"]'));
+  chk('009 labels localised', document.getElementById('bmrLblWho').textContent===('$lang'==='de'?'Tiere':'animals'));
+  chk('009 chip names localised', document.getElementById('bmrLarge').getAttribute('aria-label').indexOf('$lang'==='de'?'nur die Arten ab':'only the species of one')===0);
+  // The figures below are least-squares fits to the 626 species of Savage et al. 2004, computed
+  // independently from the published table (Python, 2026-11-20). The prose quotes them, so each
+  // is checked twice: the instrument must compute it, and the visible prose must say it.
+  var g9=function(id){return document.getElementById(id).textContent;};
+  var L9=function(v){return '$lang'==='de'? v.replace(/\./g,','): v;};
+  var prose9=''; [].slice.call(a9.querySelectorAll('.body > div[data-lang="$lang"]')).forEach(function(d){ prose9+=d.textContent; });
+  chk('009 opens on all 626 at 3/4', g9('bmrN')==='626' && g9('bmrDrawn')==='3/4'
+      && document.getElementById('bmrThreeQuarters').getAttribute('aria-pressed')==='true');
+  chk('009 all 626 fit 0.71 ± 0.01', g9('bmrFit')===L9('0.71 ± 0.01'));
+  chk('009 all 626 miss 1.50 at 3/4', g9('bmrMiss')===L9('×1.50'));
+  document.getElementById('bmrTwoThirds').click();
+  chk('009 all 626 miss 1.50 at 2/3', g9('bmrDrawn')==='2/3' && g9('bmrMiss')===L9('×1.50'));
+  document.getElementById('bmrBest').click();
+  chk('009 all 626 miss 1.48 at best fit', g9('bmrMiss')===L9('×1.48'));
+  document.getElementById('bmrSmall').click();
+  chk('009 under 1 kg 477 fit 0.66 ± 0.02', g9('bmrN')==='477' && g9('bmrFit')===L9('0.66 ± 0.02'));
+  document.getElementById('bmrLarge').click();
+  chk('009 over 1 kg 149 fit 0.84 ± 0.04', g9('bmrN')==='149' && g9('bmrFit')===L9('0.84 ± 0.04'));
+  chk('009 best fit follows the animals', g9('bmrDrawn')===L9('0.836'));
+  document.getElementById('bmrPerKg').click();
+  chk('009 per kilogram repaints, readouts unchanged', px9()>5000 && g9('bmrFit')===L9('0.84 ± 0.04'));
+  var sl9=document.getElementById('bmrSlider'); sl9.value='0.9'; sl9.dispatchEvent(new Event('input'));
+  chk('009 slider sets the line and releases the chips', g9('bmrDrawn')===L9('0.900')
+      && ['bmrTwoThirds','bmrThreeQuarters','bmrBest'].every(function(id){return document.getElementById(id).getAttribute('aria-pressed')==='false';}));
+  document.getElementById('bmrAll').click(); document.getElementById('bmrPerAnimal').click(); document.getElementById('bmrThreeQuarters').click();
+  chk('009 prose quotes the instrument', ['0.71','0.66','0.84','1.48','1.50','626','477','149','0.836','0.834'].every(function(v){
+        return prose9.indexOf(L9(v))>=0 || a9.querySelector('.sources div[data-lang="$lang"]').textContent.indexOf(L9(v))>=0; }));
+  chk('009 no scaffolding left', !/INTERACTIVE|@@M[XY]@@|<!--/.test(a9.textContent));
+
   // A markdown rule spliced in as prose shows up on the page as a literal "---" (008 carried two, 2026-11-14 to -20).
   chk('no stray markdown rule in any note', [].slice.call(document.querySelectorAll('main article.note p')).every(function(p){
         return p.textContent.trim()!=='---'; }));
