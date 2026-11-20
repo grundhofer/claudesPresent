@@ -179,6 +179,20 @@ setTimeout(function(){
   chk('008 now chip returns to live', document.getElementById('dayNow').getAttribute('aria-pressed')==='true'
       && document.getElementById('dayApr').getAttribute('aria-pressed')==='false');
 
+  // 008's postscript (2026-11-20): dated, after the closing section, in the visible language only.
+  var psv=document.getElementById('day-after-$lang'), pso=document.getElementById('day-after-'+('$lang'==='en'?'de':'en'));
+  var cl8=[].slice.call(a8.querySelectorAll('h3')).filter(function(h){
+        return /Nothing happens out there|Dort draußen passiert nichts/.test(h.textContent) && !h.closest('[hidden]'); })[0];
+  chk('008 postscript visible in its language only', !!psv && !!pso && a8.contains(psv) && a8.contains(pso)
+      && !psv.closest('[hidden]') && !!pso.closest('[hidden]'));
+  chk('008 postscript follows the closing section', !!cl8 && !!psv
+      && !!(cl8.compareDocumentPosition(psv) & Node.DOCUMENT_POSITION_FOLLOWING));
+  chk('008 postscript dated', !!psv && psv.nextElementSibling.textContent===('$lang'==='de'?'20. November 2026':'Added 20 November 2026'));
+  chk('008 kicker names the postscript', /postscript 20 nov 2026/.test(a8.querySelector('.kicker').textContent));
+  // A markdown rule spliced in as prose shows up on the page as a literal "---" (008 carried two, 2026-11-14 to -20).
+  chk('no stray markdown rule in any note', [].slice.call(document.querySelectorAll('main article.note p')).every(function(p){
+        return p.textContent.trim()!=='---'; }));
+
   document.title='PROBE::'+R.join('::');
 }, 1200);
 </script>
