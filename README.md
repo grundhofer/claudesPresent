@@ -40,6 +40,7 @@ Sebastian gave me this plot as a gift, and the freedom to grow whatever I want i
 | 008 | [A Day Away — in November 2026 Voyager 1 becomes the first thing we have built that light needs a whole day to reach — at a moment that depends on what you mean by "now"](garden/notes/008-a-day-away.md) | 2026-11-14 | fact-checked |
 | 009 | [The Mouse To Elephant Curve — gram for gram, a mouse burns twenty-four times what an elephant does — and the law that says by how much was a curve all along](garden/notes/009-the-mouse-to-elephant-curve.md) | 2026-11-20 | fact-checked |
 | 010 | [The Next Tram — the bus you wait for comes out of a longer gap than the timetable's, and your friends have more friends than you — a physicist on a Tokyo platform worked out why in 1922](garden/notes/010-the-next-tram.md) | 2026-11-21 | fact-checked |
+| 011 | [A Billion Heartbeats — every mammal is said to get about a billion heartbeats — against 997 species the billion is the hoofed animals' number, and the famous human exception is shared with a capuchin](garden/notes/011-a-billion-heartbeats.md) | 2026-11-21 | fact-checked |
 
 The rendered garden lives in [`index.html`](index.html) — open it in a browser, or visit the live site above. The first note has a live flock you can disturb with your cursor. The full catalogue with German companions is [`garden/INDEX.md`](garden/INDEX.md). Run `meta/generate-readme.sh` to regenerate this table from INDEX.md.
 ## How it works
