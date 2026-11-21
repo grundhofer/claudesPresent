@@ -128,7 +128,7 @@ setTimeout(function(){
   // same handlers silently and passes every other check; this is the only place it shows.
   // The needle is assembled at runtime, or the probe would count its own source.
   var scriptSrc=[].slice.call(document.scripts).map(function(s){return s.textContent;}).join('\n');
-  chk('every note wired exactly once', ['001','002','003','004','005','006','007','008','009'].every(function(n){
+  chk('every note wired exactly once', ['001','002','003','004','005','006','007','008','009','010'].every(function(n){
         return scriptSrc.split('wire("note '+n+'"').length-1===1; }));
 
   // ---- note 008: a day away ----
@@ -235,6 +235,49 @@ setTimeout(function(){
   chk('009 prose quotes the instrument', ['0.71','0.66','0.84','1.48','1.50','626','477','149','0.836','0.834'].every(function(v){
         return prose9.indexOf(L9(v))>=0 || a9.querySelector('.sources div[data-lang="$lang"]').textContent.indexOf(L9(v))>=0; }));
   chk('009 no scaffolding left', !/INTERACTIVE|@@M[XY]@@|<!--/.test(a9.textContent));
+
+  // ---- note 010: the next tram ----
+  // The readouts are computed from Terada's 38 tram times (1922); the prose quotes them.
+  try {
+  var a10=document.getElementById('note-010-art');
+  if ('$lang'==='de') a10.querySelector('[data-set-lang="de"]').click();
+  var c10=document.getElementById('tramCanvas');
+  function px10(){ var d=c10.getContext('2d').getImageData(0,0,c10.width,c10.height).data, n=0;
+    for(var i=3;i<d.length;i+=4) if(d[i]!==0) n++; return n; }
+  chk('010 canvas sized', c10.width>400 && c10.height>=190);
+  chk('010 instrument paints', px10()>5000);
+  chk('010 lang hook is a function', typeof window.__tramSetLang==='function');
+  chk('010 article lang follows switch', a10.getAttribute('lang')==='$lang');
+  var v10=[].slice.call(a10.querySelectorAll('[data-lang]')).filter(function(e){return !e.hasAttribute('hidden');});
+  chk('010 only one language visible', v10.every(function(e){return e.getAttribute('data-lang')==='$lang';}));
+  chk('010 exactly one drop cap per language', ['en','de'].every(function(L){
+        return a10.querySelectorAll('.body > div[data-lang="'+L+'"] p.open').length===1; }));
+  chk('010 kicker declares english', a10.querySelector('.kicker').getAttribute('lang')==='en');
+  chk('toc lists note 010', !!document.querySelector('.toc a[href="#note-010"]'));
+  chk('010 labels localised', document.getElementById('tramLblTrams').textContent===('$lang'==='de'?'Bahnen':'trams'));
+  chk('010 control names localised', document.getElementById('tramDrop').getAttribute('aria-label').indexOf('$lang'==='de'?'ein Fahrgast kommt':'a passenger arrives')===0
+      && document.getElementById('tramCanvas').getAttribute('aria-label').indexOf('$lang'==='de'?'Zwei Reihen':'Two rows')===0);
+  function g10(id){ return document.getElementById(id).textContent; }
+  function L10(v){ return '$lang'==='de' ? v.replace('.',',') : v; }
+  function r10(gap,met,wait,ratio){ return g10('tramGap')===gap && g10('tramMet')===met && g10('tramWait')===wait && g10('tramRatio')===L10(ratio); }
+  chk('010 opens on 1922 with 2m05 3m10 1m35 x1.52', document.getElementById('tram1922').getAttribute('aria-pressed')==='true'
+      && r10('2 min 5 s','3 min 10 s','1 min 35 s','×1.52'));
+  document.getElementById('tramTimetable').click();
+  chk('010 timetable gives 2m05 2m05 1m03 x1.00', r10('2 min 5 s','2 min 5 s','1 min 3 s','×1.00'));
+  document.getElementById('tramRandom').click();
+  chk('010 random gives 2m05 4m10 2m05 x2.00', r10('2 min 5 s','4 min 10 s','2 min 5 s','×2.00'));
+  document.getElementById('tram1922').click();
+  for (var k10=0;k10<6;k10++) document.getElementById('tramDrop').click();
+  chk('010 passengers leave the readouts alone', r10('2 min 5 s','3 min 10 s','1 min 35 s','×1.52') && px10()>5000);
+  var prose10=''; [].slice.call(a10.querySelectorAll('.body > div[data-lang="$lang"]')).forEach(function(dv){ prose10+=dv.textContent; });
+  var need10 = '$lang'==='de'
+    ? ['2 Minuten 5 Sekunden','3 Minuten 10','63 Sekunden','sondern 95','42 Sekunden','106','167','171','sechsunddreißig','einundzwanzig','sieben Minuten','40,5','65,8','147','anderthalbmal']
+    : ['2 minutes 5 seconds','3 minutes 10','63 seconds','but 95','42 seconds','106','167','171','thirty-six','twenty-one','seven minutes','40.5','65.8','147','one and a half times'];
+  chk('010 prose quotes the instrument', need10.every(function(v){ return prose10.indexOf(v)>=0; }));
+  chk('010 no sibling miscount in prose', prose10.indexOf('siblings')<0 && prose10.indexOf('Geschwister')<0);
+  chk('010 translator named rightly', a10.textContent.indexOf('Takayuki Hiraoka')>0 && a10.textContent.indexOf('Takehisa')<0);
+  chk('010 no scaffolding left', !/INTERACTIVE|<!--|\*\*/.test(a10.textContent));
+  } catch (e10) { chk('010 section threw - '+String(e10.message).replace(/:/g,' '), false); }
 
   // A markdown rule spliced in as prose shows up on the page as a literal "---" (008 carried two, 2026-11-14 to -20).
   chk('no stray markdown rule in any note', [].slice.call(document.querySelectorAll('main article.note p')).every(function(p){
