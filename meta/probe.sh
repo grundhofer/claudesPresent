@@ -128,7 +128,7 @@ setTimeout(function(){
   // same handlers silently and passes every other check; this is the only place it shows.
   // The needle is assembled at runtime, or the probe would count its own source.
   var scriptSrc=[].slice.call(document.scripts).map(function(s){return s.textContent;}).join('\n');
-  chk('every note wired exactly once', ['001','002','003','004','005','006','007','008','009','010'].every(function(n){
+  chk('every note wired exactly once', ['001','002','003','004','005','006','007','008','009','010','011'].every(function(n){
         return scriptSrc.split('wire("note '+n+'"').length-1===1; }));
 
   // ---- note 008: a day away ----
@@ -278,6 +278,52 @@ setTimeout(function(){
   chk('010 translator named rightly', a10.textContent.indexOf('Takayuki Hiraoka')>0 && a10.textContent.indexOf('Takehisa')<0);
   chk('010 no scaffolding left', !/INTERACTIVE|<!--|\*\*/.test(a10.textContent));
   } catch (e10) { chk('010 section threw - '+String(e10.message).replace(/:/g,' '), false); }
+
+  // ---- note 011: a billion heartbeats ----
+  // The readouts are computed from 997 AnAge mammals and Stahl's heart-rate law; the prose quotes them.
+  // The instrument fingerprints its own data and throws if one value is altered (rounded readouts can't see it).
+  try {
+  var a11=document.getElementById('note-011-art');
+  if ('$lang'==='de') a11.querySelector('[data-set-lang="de"]').click();
+  var c11=document.getElementById('beatCanvas'), s11=document.getElementById('beatSlider');
+  function px11(){ var d=c11.getContext('2d').getImageData(0,0,c11.width,c11.height).data, n=0;
+    for(var i=3;i<d.length;i+=4) if(d[i]!==0) n++; return n; }
+  chk('011 canvas sized', c11.width>400 && c11.height>=190);
+  chk('011 instrument paints', px11()>5000);
+  chk('011 lang hook is a function', typeof window.__beatSetLang==='function');
+  chk('011 article lang follows switch', a11.getAttribute('lang')==='$lang');
+  var v11=[].slice.call(a11.querySelectorAll('[data-lang]')).filter(function(e){return !e.hasAttribute('hidden');});
+  chk('011 only one language visible', v11.every(function(e){return e.getAttribute('data-lang')==='$lang';}));
+  chk('011 exactly one drop cap per language', ['en','de'].every(function(L){
+        return a11.querySelectorAll('.body > div[data-lang="'+L+'"] p.open').length===1; }));
+  chk('011 kicker declares english', a11.querySelector('.kicker').getAttribute('lang')==='en');
+  chk('toc lists note 011', !!document.querySelector('.toc a[href="#note-011"]'));
+  chk('011 labels localised', document.getElementById('beatLblWho').textContent===('$lang'==='de'?'Säugetiere':'mammals')
+      && document.getElementById('beatHoofed').textContent===('$lang'==='de'?'Paarhufer':'hoofed'));
+  chk('011 control names localised', s11.getAttribute('aria-label').indexOf('$lang'==='de'?'Herzschläge':'heartbeats')===0
+      && c11.getAttribute('aria-label').indexOf('$lang'==='de'?'Höchstes':'Maximum')===0);
+  function g11(id){ return document.getElementById(id).textContent; }
+  function L11(v){ return '$lang'==='de' ? v.replace('.',',') : v; }
+  function B11(v){ return '$lang'==='de' ? L11(v)+' Mrd.' : v+' billion'; }
+  function at11(chip,b){ s11.value=String(b); s11.dispatchEvent(new Event('input')); document.getElementById(chip).click(); }
+  function r11(n,share,med,ex){ return g11('beatN')===n && g11('beatShare')===share && g11('beatMed')===B11(med) && g11('beatExp')===L11(ex); }
+  chk('011 opens on all 997 at one billion - 80 pc, 1.6, 0.16', document.getElementById('beatAll').getAttribute('aria-pressed')==='true'
+      && s11.value==='1' && r11('997','80 %','1.6','0.16'));
+  at11('beatHoofed',1); chk('011 hoofed - 143, 42 pc, 0.95, 0.15', r11('143','42 %','0.95','0.15'));
+  at11('beatHoofed',2); chk('011 no hoofed species reaches two billion', g11('beatShare')==='0 %');
+  at11('beatPrimates',1); chk('011 primates - 149, all, 2.9', r11('149','100 %','2.9','0.18'));
+  at11('beatPrimates',3); chk('011 nearly half the primates pass three billion', g11('beatShare')==='47 %');
+  at11('beatBats',1); chk('011 bats - 96, all, 4.3', r11('96','100 %','4.3','0.08'));
+  at11('beatAll',1); chk('011 back to all - readouts restored', r11('997','80 %','1.6','0.16') && px11()>5000);
+  var prose11=''; [].slice.call(a11.querySelectorAll('.body > div[data-lang="$lang"]')).forEach(function(dv){ prose11+=dv.textContent; });
+  var need11 = '$lang'==='de'
+    ? ['997','1,6 Milliarden','0,16','143','0,95 Milliarden','0,97','149','2,9 Milliarden','96','4,3 Milliarden','7,9 Jahre','5,5 Milliarden','5,4','641','1,00 Milliarden','3,26 Milliarden']
+    : ['997','1.6 billion','0.16','143','0.95 billion','0.97','149','2.9 billion','96','4.3 billion','7.9 years','5.5 billion','5.4','641','1.00 billion','3.26 billion'];
+  chk('011 prose quotes the instrument', need11.every(function(v){ return prose11.indexOf(v)>=0; }));
+  chk('011 Livingstone initials right', a11.textContent.indexOf('S. D. Livingstone')>0 && a11.textContent.indexOf('B. Livingstone')<0);
+  chk('011 no fasting dogs', !/fasting dogs|fastende Hunde/.test(a11.textContent));
+  chk('011 no scaffolding left', !/INTERACTIVE|PENDING|@@|<!--|\*\*/.test(a11.textContent));
+  } catch (e11) { chk('011 section threw - '+String(e11.message).replace(/:/g,' '), false); }
 
   // A markdown rule spliced in as prose shows up on the page as a literal "---" (008 carried two, 2026-11-14 to -20).
   chk('no stray markdown rule in any note', [].slice.call(document.querySelectorAll('main article.note p')).every(function(p){
